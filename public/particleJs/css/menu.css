@@ -1,0 +1,552 @@
+body {
+    margin:0;
+    background-color: #eaeaea;
+}
+
+.all-btn {
+}
+
+    .all-btn div {
+        float: left;
+    }
+
+    .all-btn div:last-child {
+        margin-right: 0;
+    }
+
+
+    /* Menu Button 1 */
+    .menu-btn-1 {
+        height: 32px;
+        width: 40px;
+        cursor: pointer;
+    }
+
+        .menu-btn-1 span,
+        .menu-btn-1 span::before,
+        .menu-btn-1 span::after {
+            background: white;
+            border-radius: 3px;
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 6px;         
+            margin-top: 13px; 
+
+            -webkit-transition: .3s ease-in-out;
+            -moz-transition: .3s ease-in-out;
+            -o-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .menu-btn-1 span::before {
+            margin-top:-12px;
+        }
+
+        .menu-btn-1 span::after {
+            margin-top:12px;
+        }
+
+        .menu-btn-1.active span {
+            background: transparent;
+        }
+
+        .menu-btn-1.active span::before {
+            margin-top: 0;
+
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .menu-btn-1.active span::after {
+            margin-top: 0;
+
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+
+        /* Menu Button 2 */
+        .menu-btn-2 {
+            height: 32px;
+            width: 40px;
+            cursor: pointer;
+        }
+        
+        .menu-btn-2 span,
+        .menu-btn-2 span::before,
+        .menu-btn-2 span::after {
+            background: black;        
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 6px;         
+            margin-top: 13px;
+            
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotateY(180deg);
+
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+        .menu-btn-2 span::before {
+            margin-top:-12px;
+        }
+
+        .menu-btn-2 span::after {
+            margin-top:12px;
+        }
+
+        .menu-btn-2.active span {
+            background: transparent;
+        }
+
+        .menu-btn-2.active span::before {
+            margin-top: 0;
+
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .menu-btn-2.active span::after {
+            margin-top: 0;
+
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+        
+        .menu-btn-2.active {
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+
+        /* Menu Button 3 */
+        .menu-btn-3 {
+            height: 32px;
+            width: 40px;
+            cursor: pointer;
+        }
+        
+        .menu-btn-3 span,
+        .menu-btn-3 span::before,
+        .menu-btn-3 span::after {
+            background: #394baf; 
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 6px;         
+            margin-top: 13px;
+            
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(deg);
+            transform: rotate(180deg);
+
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+        .menu-btn-3 span::before {
+            margin-top:-12px;
+        }
+
+        .menu-btn-3 span::after {
+            margin-top:12px;
+        }
+
+        .menu-btn-3.active span {
+            background: transparent;
+        }
+
+        .menu-btn-3.active span::before {
+            margin-top: 0;
+
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .menu-btn-3.active span::after {
+            transform: rotate(-45deg);
+            margin-top: 0;
+        }
+
+
+        /* Menu Button 4 */
+        .menu-btn-4 {
+            height: 32px;
+            width: 40px;
+            cursor: pointer;
+        }
+        
+        .menu-btn-4 span,
+        .menu-btn-4 span::before,
+        .menu-btn-4 span::after {
+            background: rgb(67, 181, 1);
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;         
+            margin-top: 13px; 
+
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+        .menu-btn-4 span::before {
+            margin-top:-12px;
+        }
+
+        .menu-btn-4 span::after {
+            margin-top:12px;
+        }
+
+        .menu-btn-4.active span {
+            border-radius: 1px 0px 0px 1px;
+        }
+
+        .menu-btn-4.active span::before {
+            right: 24px;
+            width: 17px;
+            top: 7.8px;
+            border-radius: 1px 0px 0px 1px;
+
+            -webkit-transform: rotate(-34deg);
+            -moz-transform: rotate(-34deg);
+            -o-transform: rotate(-34deg);
+            transform: rotate(-34deg);
+        }
+
+        .menu-btn-4.active span::after {
+            right: 24px;
+            width: 17px;
+            top: -7.8px;
+            border-radius: 1px 0px 0px 1px;
+
+            -webkit-transform: rotate(34deg);
+            -moz-transform: rotate(34deg);
+            -o-transform: rotate(34deg);
+            transform: rotate(34deg);
+        }
+        
+        .menu-btn-4.active {
+            -webkit-transition: .5s ease-in;
+            -moz-transition: .5s ease-in;
+            -o-transition: .5s ease-in;
+            transition: .5s ease-in;
+        }
+        
+
+        /* Menu Button 5 */
+        .menu-btn-5 {
+            height: 32px;
+            width: 40px;
+            cursor: pointer;
+        }
+        
+        .menu-btn-5 span:nth-child(1),
+        .menu-btn-5 span:nth-child(1)::before,
+        .menu-btn-5 span:nth-child(1)::after {
+            background: #E91E63;
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;         
+            margin-top: 13px; 
+
+            -webkit-transition: .3s ease-in-out;
+            -moz-transition: .3s ease-in-out;
+            -o-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .menu-btn-5 span:nth-child(1)::before {
+            margin-top:-12px;
+            
+            -webkit-transition: .3s ease-in-out .3s;
+            -moz-transition: .3s ease-in-out .3s;
+            -o-transition: .3s ease-in-out .3s;
+            transition: .3s ease-in-out .3s;
+        }
+
+        .menu-btn-5 span:nth-child(1)::after {
+            margin-top:12px;
+            
+            -webkit-transition: .3s ease-in-out .3s;
+            -moz-transition: .3s ease-in-out .3s;
+            -o-transition: .3s ease-in-out .3s;
+            transition: .3s ease-in-out .3s;
+        }
+
+        .menu-btn-5 span:nth-child(2) {
+            background: #E91E63;
+            content: '';
+            position: absolute;
+            width: 0px;
+            height: 3px;         
+            margin-top: 13px;
+            
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+
+            -webkit-transition: .3s ease-in-out;
+            -moz-transition: .3s ease-in-out;
+            -o-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .menu-btn-5.active span:nth-child(1)::before,
+        .menu-btn-5.active span:nth-child(1)::after {
+            margin-top:0;
+        }
+
+        .menu-btn-5.active span:nth-child(1) {
+            -webkit-transition: .5s ease-in-out .6s;
+            -moz-transition: .5s ease-in-out .6s;
+            -o-transition: .5s ease-in-out .6s;
+            transition: .5s ease-in-out .5s;
+
+            -webkit-transform:rotate(45deg);
+            -moz-transform:rotate(45deg);
+            -o-transform:rotate(45deg);
+            transform:rotate(45deg);
+        }
+
+        .menu-btn-5.active span:nth-child(2) {
+            width: 40px;
+            
+            -webkit-transition: .3s ease-in-out .8s;
+            -moz-transition: .3s ease-in-out .8s;
+            -o-transition: .3s ease-in-out .8s;
+            transition: .3s ease-in-out .8s;
+        }        
+        
+
+        /* Menu Button 6 */
+        .menu-btn-6 {
+            height: 32px;
+            width: 40px;
+            cursor: pointer;
+        }
+        
+        .menu-btn-6 span,
+        .menu-btn-6 span::before,
+        .menu-btn-6 span::after {
+            background: #795548;
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;         
+            margin-top: 13px; 
+
+            -webkit-transition: .3s ease-in-out .3s;
+            -moz-transition: .3s ease-in-out .3s;
+            -o-transition: .3s ease-in-out .3s;
+            transition: .3s ease-in-out .3s;
+        }
+
+        .menu-btn-6 span::before {
+            margin-top:-12px;
+            
+            -webkit-transition: .3s ease-in-out;
+            -moz-transition: .3s ease-in-out;
+            -o-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .menu-btn-6 span::after {
+            margin-top:12px;
+            
+            -webkit-transition: .3s ease-in-out;
+            -moz-transition: .3s ease-in-out;
+            -o-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .menu-btn-6.active span {
+            background: transparent;
+            
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+
+            -webkit-transform:rotate(-90deg);
+            -moz-transform:rotate(-90deg);
+            -o-transform:rotate(-90deg);
+            transform:rotate(-90deg);
+        }
+
+        .menu-btn-6.active span::before {
+            margin-top:0;
+            
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+
+            -webkit-transition-delay: .5s;
+            -moz-transition-delay: .5s;
+            -o-transition-delay: .5s;
+            transition-delay: .5s;
+        }
+
+        .menu-btn-6.active span::after {
+            margin-top:0;
+
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+
+            -webkit-transition-delay: .6s;
+            -moz-transition-delay: .6s;
+            -o-transition-delay: .6s;
+            transition-delay: .5s;
+        }
+        
+
+        /* Menu Button 7 */
+        .menu-btn-7 {
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+            position: relative;
+            border-radius: 100%;
+            border: 4px solid #00bcd4;
+
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+        .menu-btn-7 span:nth-child(1),
+        .menu-btn-7 span:nth-child(2) {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 5px;         
+            margin-top: 18px;
+            background: #00BCD4;
+        }
+
+        .menu-btn-7 span:nth-child(1) {
+            right: 15.1px;
+
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        
+        .menu-btn-7 span:nth-child(2) {
+            right: 4.5px;
+
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        .menu-btn-7.active {
+            -webkit-transform: rotate(-180deg);
+            -moz-transform: rotate(-180deg);
+            -o-transform: rotate(-180deg);
+            transform: rotateX(-180deg);
+
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+        
+        /* Menu Button 8 */
+        .menu-btn-8 {
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+            position: relative;
+            border-radius: 100%;
+            border: 4px solid #9C27B0;
+        }
+
+        .menu-btn-8 span:nth-child(1),
+        .menu-btn-8 span:nth-child(2) {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 5px;         
+            margin-top: 18px;
+            background: #9C27B0;
+            
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+        .menu-btn-8 span:nth-child(1) {
+            right: 15.1px;
+
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .menu-btn-8 span:nth-child(2) {
+            right: 4.5px;
+
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        .menu-btn-8.active span:nth-child(1) {
+            margin-top: 16px;
+
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        .menu-btn-8.active span:nth-child(2) {
+            margin-top: 16px;
+
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }

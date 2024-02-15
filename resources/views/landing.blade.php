@@ -50,7 +50,9 @@
   };
   requestAnimationFrame(update);
 </script>
-<a class="bg-orange-400 border-2 text-4xl px-20 rounded-full cursor-pointer  py-2 text-transpernt absolute m-auto left-[50%] top-[50%] -transform -translate-x-1/2 -translate-y-1/2 transition duration-[0.3] hover:-translate-y-[38px] hover:drop-shadow-[0_5px_10px_rgba(255,255,255,0.3)]">Start</a>
+<a href="{{ route('home') }}" class="bg-orange-400 border-2 text-4xl px-20 rounded-full cursor-pointer  py-2 text-transpernt absolute m-auto left-[50%] top-[50%] -transform -translate-x-1/2 -translate-y-1/2 transition duration-[0.3] hover:-translate-y-[38px] hover:drop-shadow-[0_5px_10px_rgba(255,255,255,0.3)]">
+  Start
+</a>
 <div class="p-6 absolute top-0 left-0">
     <img class="w-20 h-20 rounded-tr-[50%] rounded-br-[50%] rounded-bl-[50%] bg-white " src="{{asset('images/h5-logo.svg')}}" alt="">
 </div>

@@ -12,8 +12,7 @@
   <link rel="stylesheet" href="{{asset('particleJs/particles.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu-ul.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu.css')}}">
-  <script src="{{asset('particleJs/js/menu.js')}}"></script>
-  <script src="{{asset('particleJs/js/info-card.js')}}"></script>
+
 
 </head>
 
@@ -56,15 +55,15 @@
 <a href="{{route('home')}}" class="p-6 absolute top-0 left-0 z-10">
   <img class="w-20 h-20 rounded-tr-[50%] rounded-br-[50%] rounded-bl-[50%] bg-white " src="{{asset('images/h5-logo.svg')}}" alt="">
 </a>
-<div id="menu-button" class="all-btn top-12 right-20 bg-red-300 fixed z-10">
-  <div class="">
-      <div class="menu-btn-1 absolute" onclick="menuBtnFunction(this)">
+<div id="menu-button" class="all-btn top-12 right-20 bg-red-300 fixed z-20">
+  <div class="z-20">
+      <div class="menu-btn-1 absolute" onclick="aboutMenuBtnFunction(this)">
           <span></span>
       </div>
   </div>
 </div>
-
-  <div id="menu" class="absolute flex justify-center items-center w-screen h-screen bg-black opacity-[0.85]">
+<div class="w-full h-full absolute">
+  <div id="about-menu" class="absolute z-10 flex justify-center items-center w-screen h-screen bg-black opacity-[0.85]">
       <ul class="ml-10">
         <li><a href="{{route('home')}}" data-text="Home">Home</a></li>
         <li><a href="{{route('about')}}" data-text="About">About</a></li>
@@ -253,4 +252,6 @@
     </div>
 </div>
 
+<script src="{{asset('particleJs/js/about-menu.js')}}"></script>
+<script src="{{asset('particleJs/js/info-card.js')}}"></script>
 </html>

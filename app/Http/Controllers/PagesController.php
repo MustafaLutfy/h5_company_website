@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Post;
+use App\Models\Image;
 use Auth;
 class PagesController extends Controller
 {

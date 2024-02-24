@@ -148,7 +148,7 @@
          @foreach ($products as $product)
          <div class="w-full md:max-w-sm mx-8 bg-white z-10 border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
           <a href="{{route('product', $product->id)}}">
-              <img class="p-8 rounded-t-lg" src="{{url('https://flowbite.com/docs/images/products/apple-watch.png')}}" alt="product image" />
+              <img class="p-8 rounded-t-lg" src="{{asset('images/'.App\Models\Image::where('product_id', $product->id)->get()->first()->url)}}" alt="product image" />
           </a>
           <div class="px-5 pb-5">
               <a href="#">

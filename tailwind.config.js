@@ -15,9 +15,6 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-            backgroundImage: {
-                'store': "url('../public/images/Screenshot 2024-02-23 003022.png')",          
-        },
     },
 },
     plugins: [

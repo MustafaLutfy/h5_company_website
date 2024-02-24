@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>particles.js</title>
+  <title>H5 Company</title>
   <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
   <meta name="author" content="Vincent Garreau" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="{{asset('particleJs/css/menu-ul.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu.css')}}">
 </head>
-
 
 {{-- <!-- count particles -->
 <div class="count-particles">
@@ -66,11 +65,11 @@
 
     <div id="menu" class="absolute flex  justify-center items-center w-full h-full bg-black opacity-[0.85]">
         <ul class="ml-10">
-            <li><a href="#" data-text="Home">Home</a></li>
-            <li><a href="#" data-text="About">About</a></li>
-            <li><a href="#" data-text="Services">Services</a></li>
-            <li><a href="#" data-text="Our Team">Our Team</a></li>
-            <li><a href="#" data-text="Contact">Contact</a></li>
+            <li><a href="{{route('home')}}" data-text="Home">Home</a></li>
+            <li><a href="{{route('about')}}" data-text="About">About</a></li>
+            <li><a href="{{route('store')}}" data-text="Store">Store</a></li>
+            <li><a href="{{route('register')}}" data-text="Sign Up">Sign Up</a></li>
+            <li><a href="{{route('login')}}" data-text="Login">Login</a></li>
         </ul>
     </div>
   

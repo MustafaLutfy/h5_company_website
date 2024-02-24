@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Product;
+use App\Models\Order;
+use App\Models\Post;
+use Auth;
 class PagesController extends Controller
 {
     public function landing(){
@@ -12,7 +15,45 @@ class PagesController extends Controller
     }
 
     public function home(){
-        return view('home');
+        return view('home')->with([
+            'posts' => Post::get(),
+        ]);
+    }
+    public function about(){
+        return view('about');
+    }
+    public function store(){
+        $carouselProducts = Product::where('original_price' , '<>' , 'new_price')->get();
+        $products = Product::get();
+        return view('store')->with([
+            'carouselProducts' => $carouselProducts,
+            'products' => $products,
+        ]);
+    }
+    public function products(){
+        if (Auth::user() && Auth::user()->role == 1) {
+            $products = Product::get();
+        return view('admin.views.products')->with([
+            'products' => $products,
+        ]);
+        }
+        else{
+            return redirect()->route('landing');
+        }
+        
+    }
+
+    public function orders(){
+        if (Auth::user() && Auth::user()->role == 1) {
+            $orders = Order::get();
+            return view('admin.views.orders')->with([
+                'orders' => $orders,
+            ]);
+        }
+        else{
+            return redirect()->route('landing');
+        }
+        
     }
 
    

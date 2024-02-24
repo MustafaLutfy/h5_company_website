@@ -7,6 +7,7 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        "./node_modules/flowbite/**/*.js"
     ],
 
     theme: {
@@ -14,8 +15,14 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                'store': "url('../public/images/Screenshot 2024-02-23 003022.png')",          
         },
     },
-
-    plugins: [forms],
+},
+    plugins: [
+        forms,
+        require('flowbite/plugin')
+    ],
+    
 };

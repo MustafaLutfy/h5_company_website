@@ -39,6 +39,7 @@ use Illuminate\Support\Facades\Route;
 //     Route::get('/dashboard', [AdminController::class, 'index']);
 
 // });
+Auth::routes(['verify' => true]);
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');

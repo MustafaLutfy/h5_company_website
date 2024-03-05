@@ -53,16 +53,16 @@
   requestAnimationFrame(update);
 </script>
 <a href="{{route('home')}}" class="p-6 absolute top-0 left-0 z-10">
-  <img class="w-20 h-20 rounded-tr-[50%] rounded-br-[50%] rounded-bl-[50%] bg-white " src="{{asset('images/h5-logo.svg')}}" alt="">
+  <img class="w-20 fixed h-20 rounded-tr-[50%] rounded-br-[50%] rounded-bl-[50%] bg-white " src="{{asset('images/h5-logo.svg')}}" alt="">
 </a>
-<div id="menu-button" class="all-btn top-12 right-20 bg-red-300 fixed z-20">
+<div id="menu-button" class="all-btn top-12 right-20 bg-red-300 fixed z-30">
   <div class="z-20">
       <div class="menu-btn-1 absolute" onclick="aboutMenuBtnFunction(this)">
           <span></span>
       </div>
   </div>
 </div>
-<div class="w-full h-full absolute">
+<div class="fixed w-full h-full z-20">
   <div id="about-menu" class="absolute z-10 flex justify-center items-center w-screen h-screen bg-black opacity-[0.85]">
       <ul class="ml-10">
         <li><a href="{{route('home')}}" data-text="Home">Home</a></li>

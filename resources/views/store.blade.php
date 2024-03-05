@@ -15,7 +15,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
-<body class=" text-gray-600 work-sans leading-normal text-base tracking-normal">
+<body style="-ms-overflow-style: none;  
+scrollbar-width: none;  
+overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal text-base tracking-normal">
 
   @if(Session::has('message'))
       <div class="flex items-center mx-[20%] mt-4 p-3 mb-4 text-sm text-green-800 rounded-lg bg-green-100 border-2 border-green-300 dark:bg-gray-800 dark:text-green-400" role="alert">
@@ -38,7 +40,7 @@
         <a href="{{route('product', $carouselProduct->id)}}" class="hidden bg-blue-500 duration-700 ease-in-out" data-carousel-item>
           <div class="grid md:grid-cols-3 grid-cols-2 md:mx-24 w-full h-full">
             <div class=" flex items-center ">
-              <img class="p-8 rounded-t-lg col-span-1 w-full" src="{{url('https://flowbite.com/docs/images/products/apple-watch.png')}}" alt="product image" />
+              <img class="p-8 rounded-t-lg col-span-1 w-full" src="{{asset('images/'.App\Models\Image::where('product_id', $carouselProduct->id)->get()->first()->url)}}" alt="product image" />
             </div>
             <div class="flex flex-col justify-center col-span-1 pb-10">
               <h5 class="md:text-2xl mt-8 font-semibold tracking-tight text-gray-100 dark:text-white">{{$carouselProduct->name}}</h5>
@@ -109,13 +111,13 @@
   </div>
 
 
-  <section class="bg-gray-100 py-8">
+  <section class="bg-gray-100 py-8 max-w-screen overflow-hidden">
 
-    <div class="absolute blur-3xl w-20 h-[1000px] left-[70%] z-0 rounded-full bg-orange-200 rotate-45"></div>
-    <div class="absolute blur-3xl w-20 h-[640px] left-[30%] z-0 rounded-full bg-purple-200 rotate-45"></div>
-    <div class="absolute blur-3xl w-20 h-[80px] left-[40%] top-[140%] z-0 rounded-full bg-orange-200 rotate-45"></div>
-    <div class="absolute blur-3xl w-20 h-[400px] left-[95%] top-[100%] z-0 rounded-full bg-purple-200 rotate-45"></div>
-    <div class="absolute blur-3xl w-20 h-[400px] left-[0%] top-[100%] z-0 rounded-full bg-orange-200 rotate-45"></div>
+    <div class="md:absolute hidden blur-3xl w-20 h-[1000px] left-[70%] z-0 rounded-full bg-orange-200 rotate-45"></div>
+    <div class="md:absolute hidden blur-3xl w-20 h-[640px] left-[30%] z-0 rounded-full bg-purple-200 rotate-45"></div>
+    <div class="md:absolute hidden blur-3xl w-20 h-[80px] left-[40%] top-[140%] z-0 rounded-full bg-orange-200 rotate-45"></div>
+    <div class="md:absolute hidden blur-3xl w-20 h-[400px] left-[95%] top-[100%] z-0 rounded-full bg-purple-200 rotate-45"></div>
+    <div class="md:absolute hidden blur-3xl w-20 h-[400px] left-[0%] top-[100%] z-0 rounded-full bg-orange-200 rotate-45"></div>
 
 
       <div class="container mx-auto flex gap-8 justify-center items-center flex-wrap pt-4 pb-12">

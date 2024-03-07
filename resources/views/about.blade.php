@@ -23,7 +23,10 @@
 </div> --}}
 
 <!-- particles.js container -->
-<div id="particles-js"></div>
+<div id="particles-js">
+
+  
+</div>
 
 
 
@@ -52,6 +55,7 @@
   };
   requestAnimationFrame(update);
 </script>
+
 <a href="{{route('home')}}" class="p-6 absolute top-0 left-0 z-10">
   <img class="w-20 fixed h-20 rounded-tr-[50%] rounded-br-[50%] rounded-bl-[50%] bg-white " src="{{asset('images/h5-logo.svg')}}" alt="">
 </a>
@@ -62,7 +66,7 @@
       </div>
   </div>
 </div>
-<div class="fixed w-full h-full z-20">
+<div class="w-full h-full z-20">
   <div id="about-menu" class="absolute z-10 flex justify-center items-center w-screen h-screen bg-black opacity-[0.85]">
       <ul class="ml-10">
         <li><a href="{{route('home')}}" data-text="Home">Home</a></li>
@@ -92,7 +96,7 @@
     
     </div>
 
-    <div class="md:w-[80%] w-full mb-40 bg-[#111111] opacity-[0.9]">
+    <div class="md:w-[80%] w-full mb-40 bg-[#111111]">
       <div class="">
         <h2 class="text-orange-400 text-2xl border-b-2 border-orange-400 my-8 ">OUR TEAM</h2>
       </div>
@@ -106,13 +110,13 @@
           <h1 class="text-[16px] text-gray-100 text-left mt-2">When you step into the universe</h1>
         </button>
 
-        <button type="button" onclick="infoCardBtnFunction2()" class="w-44 pt-12 md:pt-0">
+        <button type="submit" onclick="infoCardBtnFunction2()" class="w-44 pt-12 md:pt-0">
           <div class="h-44 w-44 flex items-center">
-            <img class="rounded-lg" src="{{asset('images/Screenshot 2024-02-23 013400.png')}}" alt="">
+            <img class="rounded-lg" src="{{asset('images/Screenshot 2024-02-25 011943.png')}}" alt="">
           </div>
-          <h1 class="text-xl text-gray-100 mt-3">Mariam</h1>
-          <h2 class="text-lg text-left text-orange-400">Chief of Presidents</h2>
-          <h1 class="text-[16px] text-gray-100 text-left mt-2">The Witch Of The City</h1>
+          <h1 class="text-xl text-left text-gray-100 mt-3">T A I F</h1>
+          <h2 class="text-lg text-left text-orange-400">Graphic Designer</h2>
+          <h1 class="text-[16px] text-gray-100 text-left mt-2">Talented, Able , Intelligent, Fascinating</h1>
         </button>
 
         <button onclick="infoCardBtnFunction3()" class="w-44 pt-12 md:pt-0"> 
@@ -124,9 +128,8 @@
           <h1 class="text-[16px] text-gray-100 text-left mt-2">The Technical Touch</h1>
         </div>
       </button>
-      
+     
     </div>
-
     
     <div class="flex flex-col gap-4 h-[100%] md:w-[80%] w-[100%] justify-center items-center">
       <div class="w-full">
@@ -222,15 +225,15 @@
       <svg class="stroke-gray-400  w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6m0 12L6 6"/></svg>    
     </button>
     <div class="w-full h-[50%] flex justify-center items-center">
-        <img class="w-40 h-40 rounded-full border-4 border-orange-400" src="{{asset('images/photo_2024-02-22_23-34-49.jpg')}}" alt="">
+        <img class="w-40 h-40 rounded-full border-4 border-orange-400" src="{{asset('images/Screenshot 2024-02-25 011943.png')}}" alt="">
     </div>
     <div class="h-[18%] flex flex-col items-center">
-        <h1 class="text-2xl font-semibold text-gray-100">Mariam</h1>
-        <h1 class="text-lg font-thin text-orange-400 opacity-[0.7]">Chief of Presidents</h1>
+        <h1 class="text-2xl font-semibold text-gray-100">T A I F</h1>
+        <h1 class="text-lg font-thin text-orange-400 opacity-[0.7]">Graphic Designer</h1>
     </div>
     <div class="h-[20%] flex flex-col items-center">
-      <div class="h-[20%] flex flex-col items-center mx-8 my-6">
-        <h1 class="text-[18px] text-gray-100">The witch of the city, the protector of existence and one of the pillars of H5.</h1>
+      <div class="h-[20%] flex flex-col items-center mx-8 my-2">
+        <h1 class="text-[16px] text-gray-100">My name is Taif Husham. I live to love and search for joy every day, I am studying software engineering while also working as a graphic designer.</h1>
       </div>
   </div>
   </div>

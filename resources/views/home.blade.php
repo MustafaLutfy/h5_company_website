@@ -50,6 +50,8 @@
   };
   requestAnimationFrame(update);
 </script>
+
+
 <div class="w-[80%] h-screen bg-[#111111] opacity-[0.9] absolute m-auto left-[50%] top-[50%] -transform -translate-x-1/2 -translate-y-1/2">
   <div class="flex h-[50%] mt-20 pl-12 items-center">
     <div class="md:px-40 mt-20">
@@ -58,20 +60,13 @@
     </div>
     <img class="w-[30%] md:block hidden ml-[10%] mt-16 rounded-lg p-10" src="{{asset('images/undraw_absorbed_in_re_ymd6.svg')}}" alt="">
   </div>
+  
   <div class="flex flex-col items-center gap-4 h-[50%] mt-4">
-    <div class="w-[80%] mt-20 mb-20">
-      <div class="">
-        <h2 class="text-orange-400 text-2xl border-b-2 border-orange-400 my-8 ">WHO WE ARE</h2>
-      </div>
-      <p class="text-lg w-full text-gray-100">
-        We are a company that cares about human resources.  We try to collect everything in one place.  In addition to the many opportunities.  The goal is to find a place that brings together freelancers , To make thier way easier than before.
-      </p>
-    </div>
 
     <div class="w-[80%]">
       <h2 class="text-orange-400 text-2xl border-b-2 border-orange-400 my-8">Our Branches</h2>
     </div>
-    <div class="flex md:flex-row flex-col pb-12 gap-8">
+    <div class="flex md:flex-row flex-col py-12 gap-8">
       <div>
         <a href="{{route('store')}}" class="flex items-center justify-center text-center w-40 h-40 rounded-full border-4 border-orange-400 cursor-pointer transition hover:bg-[#212121]">
             <h1 class="text-2xl text-gray-100"><span class="text-2xl text-orange-400 font-semibold">H5 <br></span>STORE</h1>
@@ -88,6 +83,17 @@
         </div>
       </div>
     </a>
+
+    <div class="w-[80%] mt-20 mb-20">
+      <div class="">
+        <h2 class="text-orange-400 text-2xl border-b-2 border-orange-400 my-8 ">WHO WE ARE</h2>
+      </div>
+      <p class="text-lg w-full text-gray-100">
+        We are a company that cares about human resources.  We try to collect everything in one place.  In addition to the many opportunities.  The goal is to find a place that brings together freelancers , To make thier way easier than before.
+      </p>
+    </div>
+
+  
     
     <div class="w-[80%] mb-40 bg-[#111111] opacity-[0.9]">
       
@@ -105,10 +111,10 @@
         </div>
         <div>
           <div class="h-44 w-44 flex items-center">
-            <img class="rounded-lg" src="{{asset('images/Screenshot 2024-02-23 013400.png')}}" alt="">
+            <img class="rounded-lg" src="{{asset('images/Screenshot 2024-02-25 011943.png')}}" alt="">
           </div>
-          <h1 class="text-xl text-gray-100 mt-3">Mariam</h1>
-          <h2 class="text-lg text-orange-400">Chief of Presidents</h2>
+          <h1 class="text-xl text-gray-100 mt-3">T A I F</h1>
+          <h2 class="text-lg text-orange-400">Graphic Designer</h2>
         </div>
         <div>
           <div class="h-44 w-44 flex items-center">
@@ -118,7 +124,7 @@
           <h2 class="text-lg text-orange-400">Website Developer</h2>
         </div>
       </div>
-      
+
     </div>
     <div class="flex flex-col gap-4 h-[100%] w-full mt-20 justify-center items-center">
       <div class="w-[80%]">

@@ -141,6 +141,13 @@
           <h1 class="text-xl text-gray-100 mt-3">{{__('Mustafa')}}</h1>
           <h2 class="text-lg text-orange-400">{{__('Website Developer')}}</h2>
         </div>
+        <div>
+          <div class="h-44 w-44 bg-black rounded-lg flex items-center">
+            <img class="rounded-lg" src="{{asset('images/photo_2024-03-20_02-39-03.jpg')}}" alt="">
+          </div>
+          <h1 class="text-xl text-gray-100 mt-3">{{__('ALEENA')}}</h1>
+          <h2 class="text-lg text-orange-400">{{__('Voice Over')}}</h2>
+        </div>
       </div>
 
     </div>

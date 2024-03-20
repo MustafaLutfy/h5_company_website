@@ -89,11 +89,11 @@
 <div class="w-full h-full z-20">
   <div id="about-menu" class="absolute z-10 flex justify-center items-center w-screen h-screen bg-black opacity-[0.85]">
       <ul class="ml-10">
-        <li><a href="{{route('home')}}" data-text="Home">Home</a></li>
-        <li><a href="{{route('about')}}" data-text="About">About</a></li>
-        <li><a href="{{route('store')}}" data-text="Store">Store</a></li>
-        <li><a href="{{route('register')}}" data-text="Sign Up">Sign Up</a></li>
-        <li><a href="{{route('login')}}" data-text="Login">Login</a></li>
+        <li><a href="{{route('home')}}" data-text="{{__('Home')}}">{{__('Home')}}</a></li>
+        <li><a href="{{route('about')}}" data-text="{{__('About')}}">{{__('About')}}</a></li>
+        <li><a href="{{route('store')}}" data-text="{{__('Store')}}">{{__('Store')}}</a></li>
+        <li><a href="{{route('register')}}" data-text="{{__('Sign Up')}}">{{__('Sign Up')}}</a></li>
+        <li><a href="{{route('login')}}" data-text="{{__('Login')}}">{{__('Login')}}</a></li>
       </ul>
   </div>
 </div>

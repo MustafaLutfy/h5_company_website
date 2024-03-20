@@ -7,3 +7,6 @@ function infoCardBtnFunction2() {
 function infoCardBtnFunction3() {
     document.getElementById('info-card-3').classList.toggle("hidden");
 }
+function infoCardBtnFunction4() {
+    document.getElementById('info-card-4').classList.toggle("hidden");
+}

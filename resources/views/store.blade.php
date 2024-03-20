@@ -39,8 +39,8 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
         @foreach ($carouselProducts as $carouselProduct)
         <a href="{{route('product', $carouselProduct->id)}}" class="hidden bg-blue-500 duration-700 ease-in-out" data-carousel-item>
           <div class="grid md:grid-cols-3 grid-cols-2 md:mx-24 w-full h-full">
-            <div class=" flex items-center ">
-              <img class="p-8 rounded-t-lg col-span-1 w-full" src="{{asset('images/'.App\Models\Image::where('product_id', $carouselProduct->id)->get()->first()->url)}}" alt="product image" />
+            <div class="flex items-center justify-center">
+                <img class="p-8 col-span-1 md:w-[350px]" src="{{asset('images/'.App\Models\Image::where('product_id', $carouselProduct->id)->get()->first()->url)}}" alt="product image" />
             </div>
             <div class="flex flex-col justify-center col-span-1 pb-10">
               <h5 class="md:text-2xl mt-8 font-semibold tracking-tight text-gray-100 dark:text-white">{{$carouselProduct->name}}</h5>
@@ -65,18 +65,27 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
                  <span class=" text-gray-200 text-sm font-semibold px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-800 ms-3">5.0</span>
             </div>
               <div class="mt-2">
+                @if (Session::get('locale') == 'ar')
+                <span class="md:text-xl text-xs line-through font-semibold text-gray-200 ml-2 dark:text-white">{{__('IQD')}} {{number_format($carouselProduct->original_price, 0)}}</span>
+                <span class="md:text-2xl text-md font-bold text-gray-100 dark:text-white">{{__('IQD')}} {{number_format($carouselProduct->new_price, 0)}}</span>
+                @else
                 <span class="md:text-2xl text-md font-bold text-gray-100 dark:text-white">{{number_format($carouselProduct->new_price, 0)}} IQD</span>
                 <span class="md:text-xl text-xs line-through font-semibold text-gray-200 ml-2 dark:text-white">{{number_format($carouselProduct->original_price, 0)}} IQD</span>
+                @endif
              </div>
              <div >
              <button type="submit" class="py-3 mt-4 px-8 md:text-xl cursor-pointer font-medium text-center text-gray-800 bg-gray-200
-             rounded-lg transition duration-200 hover:bg-blue-200 ease">Buy Now</button>
+             rounded-lg transition duration-200 hover:bg-blue-200 ease">{{__('Buy Now')}}</button>
             </div>
              
             </div>
             <div class="col-span-1 flex items-center ">
+              @if(100 - $carouselProduct->new_price/$carouselProduct->original_price * 100 > 0)
               <h1 class="md:text-9xl text-gray-100 font-bold">{{100 - $carouselProduct->new_price/$carouselProduct->original_price * 100}}%</h1>
-              <h1 class="md:text-6xl mb-10  text-gray-100 font-bold">OFF</h1>
+              <h1 class="md:text-6xl mb-10  text-gray-100 font-bold">{{__('OFF')}}</h1>
+              @else
+              <h1 class="md:text-7xl text-gray-100 font-bold">NEW<br>OFFER</h1>
+              @endif
             </div>
           </div>
         </a>
@@ -126,7 +135,7 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
               <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
                   <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-                     Store
+                     {{__('Store')}}
                   </a>
 
                   <div class="flex items-center" id="store-nav-content">
@@ -178,12 +187,21 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
               </div>
               <div class="flex items-center justify-between">
                 @if ($product->original_price == $product->new_price) 
-                <span class="text-2xl font-bold text-gray-900 dark:text-white">{{number_format($product->original_price, 0)}} IQD</span>
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">{{number_format($product->original_price, 0)}} {{__('IQD')}}
+                </span>
+                @else
+                @if (Session::get('locale') == 'ar')
+                <div>
+                  <span class="md:text-2xl font-bold text-gray-900 dark:text-white">{{__('IQD')}} {{number_format($product->new_price, 0)}}</span>
+                  <span class="md:text-lg text-md line-through text-gray-400 dark:text-white">{{number_format($product->original_price, 0)}} {{__('IQD')}}</span>  
+                </div>  
                 @else
                 <div>
-                  <span class="md:text-2xl font-bold text-gray-900 dark:text-white">{{number_format($product->new_price, 0)}} IQD</span>
-                  <span class="md:text-lg text-md line-through text-gray-400 dark:text-white">{{number_format($product->original_price, 0)}} IQD</span>  
+                  <span class="md:text-2xl font-bold text-gray-900 dark:text-white"> {{number_format($product->new_price, 0)}} {{__('IQD')}}</span>
+                  <span class="md:text-lg text-md line-through text-gray-400 dark:text-white">{{number_format($product->original_price, 0)}} {{__('IQD')}}</span>  
                 </div>
+                @endif
+                
                 @endif
                   <a class="pl-3 inline-block no-underline hover:text-gray-800" href="#">
                     <svg class="fill-gray-800 hover:text-gray-800" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -205,8 +223,8 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
       <div class="py-8 px-6">
 
           <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl mb-8" href="#">
-    About
-    <p class="mt-4 font-light">This is the Store branch of H5 Company one of our branches to sell every thing you would imagine</p>
+    {{__('ABOUT STORE')}}
+    <p class="mt-4 font-light">{{__('This is the Store branch of H5 Company one of our branches to sell every thing you would imagine')}}</p>
 
       </div>
   </section>
@@ -219,7 +237,7 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
     </div>
     <div class="flex w-screen justify-center text-center mt-6 md:mt-0">
       <div class="px-3 md:px-0">
-        <h3 class=" font-bold text-gray-900">Social</h3>
+        <h3 class=" font-bold text-gray-900">{{__('Social')}}</h3>
 
         <div class="w-full flex items-center py-4 mt-0">
           <a href="https://www.instagram.com/h5store.iq?igsh=Y2M4Nnp5Y29vbjMx" target="_blank" class="mx-2">

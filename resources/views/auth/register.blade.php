@@ -5,6 +5,7 @@
 <form method="POST" action="{{ route('register') }}">
     @csrf
 <div class="bg-white relative">
+  
     <div class="flex flex-col items-center justify-between pt-0 pr-10 pb-0 pl-10 mt-0 mr-auto mb-0 ml-auto max-w-7xl
         xl:px-5 lg:flex-row">
       <div class="flex flex-col items-center w-full pt-5 pr-10 pb-20 pl-10 lg:pt-20 lg:flex-row">
@@ -16,15 +17,15 @@
         <div class="w-full mt-20 mr-0 mb-0 ml-0 relative z-10 max-w-4xl md-max-w-2xl lg:mt-0 lg:w-5/12">
           <div class="flex flex-col items-start justify-start pt-10 pr-10 pb-10 pl-10 bg-white shadow-2xl rounded-xl
               relative z-10">
-            <p class="w-full text-4xl font-medium text-center leading-snug font-serif">Sign up for an account</p>
+            <p class="w-full text-3xl font-medium text-center">{{__('Sign up for an account')}}</p>
             <div class="flex gap-1 justify-center mt-3 w-full">
-                <span>OR</span>
-                <a class="text-blue-500 hover:text-blue-600 font-semibold" href="{{route('login')}}">Sign in</a>
+                <span>{{__('OR')}}</span>
+                <a class="text-blue-500 hover:text-blue-600 font-semibold" href="{{route('login')}}">{{__('Sign in')}}</a>
             </div>
             <div class="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
               <div class="relative">
                 <p class="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600
-                    absolute">Username</p>
+                    absolute">{{__('Username')}}</p>
                 <input name="name" placeholder="Ex:Hussain" type="text" required autofocus class="border placeholder-gray-400 focus:outline-none
                     focus:border-black w-full px-4 py-6 lg:p-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
                     border-gray-300 rounded-md"/>
@@ -32,35 +33,35 @@
               </div>
               <div class="relative">
                 <p class="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600
-                    absolute">Phone</p>
+                    absolute">{{__('Phone')}}</p>
                 <input name="phone" placeholder="Ex:07712345678" type="text" required autofocus class="border placeholder-gray-400 focus:outline-none
                     focus:border-black w-full px-4 py-6 lg:p-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
                     border-gray-300 rounded-md"/>
                 <x-input-error :messages="$errors->get('phone')" class="mt-2" />
               </div>
               <div class="relative">
-                <p class="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">Email</p>
+                <p class="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">{{__('Email')}}</p>
                 <input placeholder="123@ex.com" type="email" name="email" class="border placeholder-gray-400 focus:outline-none
                     focus:border-black w-full px-4 py-6 lg:p-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
                     border-gray-300 rounded-md"/>
               </div>
               <div class="relative">
                 <p class="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600
-                    absolute">Password</p>
+                    absolute">{{__('Password')}}</p>
                 <input placeholder="Password" name="password" type="password" class="border placeholder-gray-400 focus:outline-none
                     focus:border-black w-full px-4 py-6 lg:p-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
                     border-gray-300 rounded-md"/>
               </div>
               <div class="relative">
                 <p class="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600
-                    absolute">Confirm Password</p>
+                    absolute">{{__('Confirm Password')}}</p>
                 <input placeholder="Password" name="password_confirmation" type="password" class="border placeholder-gray-400 focus:outline-none
                     focus:border-black w-full px-4 py-6 lg:p-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white
                     border-gray-300 rounded-md"/>
               </div>
               <div class="relative">
                 <button type="submit" class="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl cursor-pointer font-medium text-center text-white bg-indigo-500
-                    rounded-lg transition duration-200 hover:bg-indigo-600 ease">Sign Up</button>
+                    rounded-lg transition duration-200 hover:bg-indigo-600 ease">{{__('Sign Up')}}</button>
               </div>
             </div>
           </div>
@@ -126,6 +127,20 @@
               r="2.72"/><circle cx="87.514" cy="3.006" r="2.719"/></g></g></g></g></svg>
         </div>
       </div>
+      <div class="flex gap-2 top-12 right-10 fixed z-30 h-20 "> 
+  <a class="w-8 h-8" href="{{ route('locale', ['locale' => 'en']) }}">
+    <img class=" rounded-full {{ Session::get('locale') == 'en' ? 'border-2 border-green-500 ' : ''}}" src="{{asset('images/istockphoto-668235920-612x612.jpg')}}" alt="">
+  </a>
+  <a class="w-8 h-8" href="{{ route('locale', ['locale' => 'ar']) }}">
+    <img class="rounded-full {{ Session::get('locale') == 'ar' ? 'border-2 border-green-500 ' : ''}}" src="{{asset('images/iq-square-01.png')}}" alt="">
+  </a>
+  <div id="menu-button" class="all-btn ">
+    <div class=""> 
+        <div class="menu-btn-1" onclick="menuBtnFunction(this)">
+            <span></span>
+        </div>
+    </div>
+</div>
     </div>
   </div>
 </form>

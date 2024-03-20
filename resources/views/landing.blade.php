@@ -12,6 +12,20 @@
   <link rel="stylesheet" href="{{asset('particleJs/particles.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu-ul.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu.css')}}">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-family: "Rubik", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+    }
+  </style>
+</head>
+
 </head>
 
 {{-- <!-- count particles -->
@@ -49,27 +63,34 @@
   };
   requestAnimationFrame(update);
 </script>
+
+
 <a href="{{ route('home') }}" class="bg-orange-400 border-2 text-4xl px-20 rounded-full cursor-pointer  py-2 text-transpernt absolute m-auto left-[50%] top-[50%] -transform -translate-x-1/2 -translate-y-1/2 transition duration-[0.3] hover:-translate-y-[38px] hover:drop-shadow-[0_5px_10px_rgba(255,255,255,0.3)]">
-  Start
+  {{ __('Start') }}
 </a>
-<div class="p-6 absolute top-0 left-0">
-    <img class="w-20 h-20 rounded-tr-[50%] rounded-br-[50%] rounded-bl-[50%] bg-white " src="{{asset('images/h5-logo.svg')}}" alt="">
-</div>
-<div id="menu-button" class="all-btn top-12 right-20 bg-red-300 fixed z-10">
-    <div class="">
-        <div class="menu-btn-1 absolute" onclick="menuBtnFunction(this)">
+<div class="flex gap-2 top-12 right-10 fixed z-30 h-20 "> 
+  <a class="w-8 h-8" href="{{ route('locale', ['locale' => 'en']) }}">
+    <img class=" rounded-full {{ Session::get('locale') == 'en' ? 'border-2 border-green-500 ' : ''}}" src="{{asset('images/istockphoto-668235920-612x612.jpg')}}" alt="">
+  </a>
+  <a class="w-8 h-8" href="{{ route('locale', ['locale' => 'ar']) }}">
+    <img class="rounded-full {{ Session::get('locale') == 'ar' ? 'border-2 border-green-500 ' : ''}}" src="{{asset('images/iq-square-01.png')}}" alt="">
+  </a>
+  <div id="menu-button" class="all-btn ">
+    <div class=""> 
+        <div class="menu-btn-1" onclick="menuBtnFunction(this)">
             <span></span>
         </div>
     </div>
 </div>
 
+</div>
     <div id="menu" class="absolute flex  justify-center items-center w-full h-full bg-black opacity-[0.85]">
         <ul class="ml-10">
-            <li><a href="{{route('home')}}" data-text="Home">Home</a></li>
-            <li><a href="{{route('about')}}" data-text="About">About</a></li>
-            <li><a href="{{route('store')}}" data-text="Store">Store</a></li>
-            <li><a href="{{route('register')}}" data-text="Sign Up">Sign Up</a></li>
-            <li><a href="{{route('login')}}" data-text="Login">Login</a></li>
+          <li><a href="{{route('home')}}" data-text="{{__('Home')}}">{{__('Home')}}</a></li>
+          <li><a href="{{route('about')}}" data-text="{{__('About')}}">{{__('About')}}</a></li>
+          <li><a href="{{route('store')}}" data-text="{{__('Store')}}">{{__('Store')}}</a></li>
+          <li><a href="{{route('register')}}" data-text="{{__('Sign Up')}}">{{__('Sign Up')}}</a></li>
+          <li><a href="{{route('login')}}" data-text="{{__('Login')}}">{{__('Login')}}</a></li>
         </ul>
     </div>
   

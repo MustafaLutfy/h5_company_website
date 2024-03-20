@@ -12,6 +12,18 @@
   <link rel="stylesheet" href="{{asset('particleJs/particles.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu-ul.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu.css')}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-family: "Rubik", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
 </head>
 
 
@@ -52,6 +64,7 @@
 </script>
 
 
+
 <div class="w-[80%] h-screen bg-[#111111] opacity-[0.9] absolute m-auto left-[50%] top-[50%] -transform -translate-x-1/2 -translate-y-1/2">
   <div class="flex h-[50%] mt-20 pl-12 items-center">
     <div class="md:px-40 mt-20">
@@ -64,32 +77,37 @@
   <div class="flex flex-col items-center gap-4 h-[50%] mt-4">
 
     <div class="w-[80%]">
-      <h2 class="text-orange-400 text-2xl border-b-2 border-orange-400 my-8">Our Branches</h2>
+      <h2 class="text-orange-400 text-2xl {{ Session::get('locale') == 'ar' ? 'text-right' : ''}} border-b-2 border-orange-400 my-8"> {{__('Our Branches')}}</h2>
     </div>
     <div class="flex md:flex-row flex-col py-12 gap-8">
       <div>
         <a href="{{route('store')}}" class="flex items-center justify-center text-center w-40 h-40 rounded-full border-4 border-orange-400 cursor-pointer transition hover:bg-[#212121]">
-            <h1 class="text-2xl text-gray-100"><span class="text-2xl text-orange-400 font-semibold">H5 <br></span>STORE</h1>
+            @if (Session::get('locale') == 'ar')
+              <h1 class="text-2xl text-gray-100">{{__('STORE')}}<br><span class="text-2xl text-orange-400 font-semibold">H5</span></h1>
+ 
+            @else
+               <h1 class="text-2xl text-gray-100"><span class="text-2xl text-orange-400 font-semibold">H5 <br></span>STORE</h1>
+            @endif
         </a>
       </div>
       <a>
         <div class="flex items-center justify-center text-center w-40 h-40 rounded-full border-4 border-blue-400">
-            <h1 class="text-2xl text-gray-100"><span class="text-2xl text-blue-400 font-semibold">SOON<br></span></h1>
+            <h1 class="text-2xl text-gray-100"><span class="text-2xl text-blue-400 font-semibold">{{__('SOON')}}<br></span></h1>
         </div>
       </a>
       <a>
         <div class="flex items-center justify-center  text-center w-40 h-40 rounded-full border-4 border-green-400">
-            <h1 class="text-2xl text-gray-100"><span class="text-2xl text-green-400 font-semibold">SOON<br></span></h1>
+            <h1 class="text-2xl text-gray-100"><span class="text-2xl text-green-400 font-semibold">{{__('SOON')}}<br></span></h1>
         </div>
       </div>
     </a>
 
     <div class="w-[80%] mt-20 mb-20">
       <div class="">
-        <h2 class="text-orange-400 text-2xl border-b-2 border-orange-400 my-8 ">WHO WE ARE</h2>
+        <h2 class="text-orange-400 text-2xl {{ Session::get('locale') == 'ar' ? 'text-right' : ''}} border-b-2 border-orange-400 my-8 ">{{ __('Who We Are ?') }}</h2>
       </div>
-      <p class="text-lg w-full text-gray-100">
-        We are a company that cares about human resources.  We try to collect everything in one place.  In addition to the many opportunities.  The goal is to find a place that brings together freelancers , To make thier way easier than before.
+      <p class="text-lg w-full text-gray-100 {{ Session::get('locale') == 'ar' ? 'text-right' : ''}}">
+        {{__('We are a company that cares about human resources.  We try to collect everything in one place.  In addition to the many opportunities.  The goal is to find a place that brings together freelancers , To make thier way easier than before.')}}
       </p>
     </div>
 
@@ -99,36 +117,36 @@
       
 
       <div class="">
-        <h2 class="text-orange-400 text-2xl border-b-2 border-orange-400 my-8 ">OUR TEAM</h2>
+        <h2 class="text-orange-400 text-2xl {{ Session::get('locale') == 'ar' ? 'text-right' : ''}} border-b-2 border-orange-400 my-8 ">{{__('OUR TEAM')}}</h2>
       </div>
-      <div class="flex gap-12 md:flex-row md:items-start items-center flex-col">
+      <div class="flex gap-12 md:flex-row md:items-start {{ Session::get('locale') == 'ar' ? 'justify-end text-right' : ''}} items-center flex-col">
         <div class="">
           <div class="h-44 w-44 flex  items-center">
             <img class="rounded-lg" src="{{asset('images/Project (20240222112903).jpg')}}" alt="">
           </div>
-          <h1 class="text-xl text-gray-100 mt-3">Hussain</h1>
-          <h2 class="text-lg text-orange-400">CEO</h2>
+          <h1 class="text-xl text-gray-100 mt-3">{{__('Hussain')}}</h1>
+          <h2 class="text-lg text-orange-400">{{__('CEO')}}</h2>
         </div>
         <div>
           <div class="h-44 w-44 flex items-center">
             <img class="rounded-lg" src="{{asset('images/Screenshot 2024-02-25 011943.png')}}" alt="">
           </div>
-          <h1 class="text-xl text-gray-100 mt-3">T A I F</h1>
-          <h2 class="text-lg text-orange-400">Graphic Designer</h2>
+          <h1 class="text-xl text-gray-100 mt-3">{{__('T A I F')}}</h1>
+          <h2 class="text-lg text-orange-400">{{__('Graphic Designer')}}</h2>
         </div>
         <div>
           <div class="h-44 w-44 flex items-center">
             <img class="rounded-lg" src="{{asset('images/Screenshot 2024-02-23 020232.png')}}" alt="">
           </div>
-          <h1 class="text-xl text-gray-100 mt-3">Mustafa</h1>
-          <h2 class="text-lg text-orange-400">Website Developer</h2>
+          <h1 class="text-xl text-gray-100 mt-3">{{__('Mustafa')}}</h1>
+          <h2 class="text-lg text-orange-400">{{__('Website Developer')}}</h2>
         </div>
       </div>
 
     </div>
     <div class="flex flex-col gap-4 h-[100%] w-full mt-20 justify-center items-center">
       <div class="w-[80%]">
-        <h2 class="text-orange-400 text-2xl border-b-2 border-orange-400 my-8">Latest Updates</h2>
+        <h2 class="text-orange-400 text-2xl {{ Session::get('locale') == 'ar' ? 'text-right' : ''}} border-b-2 border-orange-400 my-8">{{__('Latest Updates')}}</h2>
       </div>
       @foreach ($posts as $post)
       <div class="grid grid-cols-6 w-[80%] h-40 bg-[#212121] rounded-lg py-4">
@@ -156,7 +174,7 @@
             <svg class="w-6 h-6 fill-gray-100 hover:fill-gray-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g ><path d="M22.459 6.846v3.659c-.197 0-.433.04-.669.04a7.295 7.295 0 0 1-4.682-1.732v7.79a6.987 6.987 0 0 1-1.416 4.25a7.02 7.02 0 0 1-5.626 2.832a6.993 6.993 0 0 1-5.941-3.305c1.259 1.18 2.95 1.928 4.8 1.928a6.893 6.893 0 0 0 5.586-2.833c.866-1.18 1.417-2.636 1.417-4.249v-7.83c1.259 1.102 2.872 1.732 4.682 1.732c.236 0 .433 0 .669-.04v-2.36c.354.079.669.118 1.023.118z"/><path d="M11.05 9.56v4.053a3.277 3.277 0 0 0-.866-.118c-1.732 0-3.148 1.456-3.148 3.226c0 .394.079.748.197 1.102c-.787-.59-1.338-1.535-1.338-2.597c0-1.77 1.416-3.226 3.148-3.226c.314 0 .59.04.865.118V9.521h.236c.315 0 .63 0 .905.04zm6.648-5.626c-.708-.63-1.22-1.495-1.495-2.4h.945v.551a6.25 6.25 0 0 0 .55 1.85z"/><path d="M21.318 6.767v2.36c-.197.04-.433.04-.669.04a7.295 7.295 0 0 1-4.682-1.73v7.79a6.987 6.987 0 0 1-1.416 4.248c-1.299 1.732-3.305 2.833-5.587 2.833c-1.85 0-3.541-.747-4.8-1.928a7.136 7.136 0 0 1-1.062-3.737c0-3.817 3.03-6.925 6.806-7.043v2.597a3.277 3.277 0 0 0-.865-.118c-1.732 0-3.148 1.455-3.148 3.226c0 1.062.512 2.046 1.338 2.597c.433 1.22 1.613 2.124 2.95 2.124c1.732 0 3.148-1.456 3.148-3.226V1.534h2.872c.276.945.787 1.77 1.495 2.4a5.397 5.397 0 0 0 3.62 2.833"/><path d="M9.908 8.184V9.52c-3.777.118-6.806 3.226-6.806 7.043c0 1.377.393 2.636 1.062 3.738A7.122 7.122 0 0 1 2 15.148c0-3.896 3.148-7.043 7.003-7.043c.315 0 .63.04.905.079"/><path d="M16.203 1.534h-2.872v15.187c0 1.77-1.416 3.227-3.147 3.227c-1.377 0-2.518-.866-2.951-2.125c.511.354 1.14.59 1.81.59c1.73 0 3.147-1.416 3.147-3.187V0h3.817v.079c0 .157 0 .314.039.472c0 .315.079.669.157.983m5.115 3.777v1.417c-1.574-.315-2.911-1.377-3.659-2.794a5.11 5.11 0 0 0 3.659 1.377"/></g></svg>
           </a> --}}
 
-          <p class="text-gray-100 ml-6 text-lg ">All copyrights © reserved 2024 to H5 Company</p>
+          <p class="text-gray-100 ml-6 text-lg ">{{__('All copyrights © reserved 2024 to H5 Company')}}</p>
         </div>
       </div>
     </div>
@@ -168,21 +186,31 @@
 <a href="{{route('home')}}" class="p-6 absolute top-0 left-0 z-10">
     <img class="w-20 fixed h-20 rounded-tr-[50%] rounded-br-[50%] rounded-bl-[50%] bg-white " src="{{asset('images/h5-logo.svg')}}" alt="">
 </a>
-<div id="menu-button" class="all-btn top-12 right-20 bg-red-300 fixed z-30">
-    <div class="">
-        <div class="menu-btn-1 absolute" onclick="menuBtnFunction(this)">
+
+<div class="flex gap-2 top-12 right-20 fixed z-30 h-20 "> 
+  <a class="w-8 h-8" href="{{ route('locale', ['locale' => 'en']) }}">
+    <img class=" rounded-full {{ Session::get('locale') == 'en' ? 'border-2 border-green-500 ' : ''}}" src="{{asset('images/istockphoto-668235920-612x612.jpg')}}" alt="">
+  </a>
+  <a class="w-8 h-8" href="{{ route('locale', ['locale' => 'ar']) }}">
+    <img class="rounded-full {{ Session::get('locale') == 'ar' ? 'border-2 border-green-500 ' : ''}}" src="{{asset('images/iq-square-01.png')}}" alt="">
+  </a>
+  <div id="menu-button" class="all-btn ">
+    <div class=""> 
+        <div class="menu-btn-1" onclick="menuBtnFunction(this)">
             <span></span>
         </div>
     </div>
 </div>
+</div>
+
 
     <div id="menu" class="fixed z-20 flex  justify-center items-center w-full h-full bg-black opacity-[0.85]">
-        <ul class="ml-10">
-          <li><a href="{{route('home')}}" data-text="Home">Home</a></li>
-          <li><a href="{{route('about')}}" data-text="About">About</a></li>
-          <li><a href="{{route('store')}}" data-text="Store">Store</a></li>
-          <li><a href="{{route('register')}}" data-text="Sign Up">Sign Up</a></li>
-          <li><a href="{{route('login')}}" data-text="Login">Login</a></li>
+        <ul class="ml-10 ">
+          <li><a href="{{route('home')}}" data-text="{{__('Home')}}">{{__('Home')}}</a></li>
+          <li><a href="{{route('about')}}" data-text="{{__('About')}}">{{__('About')}}</a></li>
+          <li><a href="{{route('store')}}" data-text="{{__('Store')}}">{{__('Store')}}</a></li>
+          <li><a href="{{route('register')}}" data-text="{{__('Sign Up')}}">{{__('Sign Up')}}</a></li>
+          <li><a href="{{route('login')}}" data-text="{{__('Login')}}">{{__('Login')}}</a></li>
         </ul>
     </div>
   

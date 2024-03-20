@@ -17,12 +17,13 @@ class PagesController extends Controller
 
     public function home(){
         return view('home')->with([
-            'posts' => Post::get(),
+            'posts' => Post::get()->take(5),
         ]);
     }
     public function about(){
-        return view('about');
-    }
+        return view('about')->with([
+            'posts' => Post::get()->take(4),
+        ]);    }
     public function store(){
         $carouselProducts = Product::where('original_price' , '<>' , 'new_price')->get();
         $products = Product::get();

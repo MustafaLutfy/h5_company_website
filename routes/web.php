@@ -49,12 +49,14 @@ Route::middleware('localization')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'verified']);
         Route::get('/orders', [PagesController::class, 'orders'])->name('orders')->middleware(['auth', 'verified']);
         Route::get('/products', [PagesController::class, 'products'])->name('products')->middleware(['auth', 'verified']);
+        Route::get('/news', [PagesController::class, 'news'])->name('news')->middleware(['auth', 'verified']);
         Route::get('/add/news', [NewsController::class, 'create'])->name('add.news')->middleware(['auth', 'verified']);
         Route::post('/add/news', [NewsController::class, 'store'])->name('store.news')->middleware(['auth', 'verified']);
         Route::get('/create', [ProductController::class, 'index'])->name('product.page')->middleware(['auth', 'verified']);
         Route::post('/create', [ProductController::class, 'create'])->name('create')->middleware(['auth', 'verified']);
         Route::delete('/order/delete/{id}', [ProductController::class, 'deleteOrder'])->name('order.delete')->middleware(['auth', 'verified']);
         Route::delete('/product/delete/{id}', [ProductController::class, 'deleteProduct'])->name('product.delete')->middleware(['auth', 'verified']);
+        Route::delete('/news/delete/{id}', [NewsController::class, 'deletePost'])->name('post.delete')->middleware(['auth', 'verified']);
     });
 
     Route::get('/', [PagesController::class, 'landing'])->name('landing');

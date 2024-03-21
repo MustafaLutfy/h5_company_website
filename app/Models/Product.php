@@ -16,6 +16,7 @@ class Product extends Model
         'send_gift',
         'is_instock',
         'description',
+        'description_ar',
     ];
 
     public function images()

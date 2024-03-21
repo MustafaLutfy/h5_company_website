@@ -66,8 +66,10 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(r $r)
+    public function deletePost($id)
     {
-        //
+        $post = Post::where('id', $id)->delete();
+
+        return redirect()->route('news');
     }
 }

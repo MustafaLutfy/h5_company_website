@@ -41,6 +41,17 @@ class PagesController extends Controller
         }
         else{
             return redirect()->route('landing');
+        }  
+    }
+    public function news(){
+        if (Auth::user() && Auth::user()->role == 1) {
+            $posts = Post::get();
+        return view('admin.views.news')->with([
+            'posts' => $posts,
+        ]);
+        }
+        else{
+            return redirect()->route('landing');
         }
         
     }

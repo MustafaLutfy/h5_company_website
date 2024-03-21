@@ -76,11 +76,18 @@
                 </div> --}}
               </div>
               <div>
-                <p class="mt-8">
-                  {{$product->description}}
-                </p>
+                @if (Session::get('locale') == 'ar')
+                  <p class="mt-8 text-right">
+                    {{$product->description_ar}}
+                  </p>
+                @else
+                  <p class="mt-8 ">
+                    {{$product->description}}
+                  </p>
+                @endif
+               
               </div>
-              <div class="flex flex-wrap gap-4 mt-10">
+              <div class="flex flex-wrap {{ Session::get('locale') == 'ar' ? 'justify-end' : ''}} gap-4 mt-10">
                 <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default" data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default" data-drawer-placement="right" class="inline-flex items-center font-semibold px-10 py-2 text-sm font-medium text-center text-white rounded-md bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-blue-800">
                   {{__('Buy Now')}}
               </button>

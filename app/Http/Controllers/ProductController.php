@@ -51,6 +51,7 @@ class ProductController extends Controller
                 'new_price' => $discount_price,
                 'is_instock' => 1,
                 'description' => $request->description,
+                'description_ar' => $request->description_ar,
     
             ]);
             foreach($files as $file){

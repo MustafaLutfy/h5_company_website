@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("new_price")->nullable();
             $table->boolean("is_instock");
             $table->longtext("description");
+            $table->longtext("description_ar");
             $table->timestamps();
         });
     }

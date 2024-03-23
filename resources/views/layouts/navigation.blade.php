@@ -12,8 +12,8 @@
         <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-2" id="menu">
             <nav>
                 <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                    <li><a class="inline-block text-gray-800 no-underline hover:text-gray-800 hover:underline py-2 px-4" href="{{route('home')}}">{{__('Home')}}</a></li>
-                    <li><a class="inline-block text-gray-800 no-underline hover:text-gray-800 hover:underline py-2 px-4" href="{{route('about')}}">{{__('About')}}</a></li>
+                    <li><a class="inline-block text-lg text-gray-800 no-underline hover:text-gray-800 hover:underline py-2 px-4" href="{{route('home')}}">{{__('Home')}}</a></li>
+                    <li><a class="inline-block text-lg text-gray-800 no-underline hover:text-gray-800 hover:underline py-2 px-4" href="{{route('about')}}">{{__('About')}}</a></li>
                 </ul>
             </nav>
         </div>

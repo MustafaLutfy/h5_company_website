@@ -287,6 +287,13 @@
                 <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>All News</span>
             </a>
           </li>
+
+          <li>
+            <a href="{{route('stores')}}" type="button" class="{{ (request()->is('admin/stores')) ? 'bg-gray-100' : '' }} flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
+              <svg class="{{ (request()->is('admin/stores')) ? 'text-gray-900' : 'group-hover:text-gray-900' }} flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M5 6h14c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1 .45-1 1s.45 1 1 1m15.16 1.8c-.09-.46-.5-.8-.98-.8H4.82c-.48 0-.89.34-.98.8l-1 5c-.12.62.35 1.2.98 1.2H4v5c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-5h4v5c0 .55.45 1 1 1s1-.45 1-1v-5h.18c.63 0 1.1-.58.98-1.2zM12 18H6v-4h6z"/></svg>
+              <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Stores Managment</span>
+            </a>
+          </li>
           <li>
  
           </li>

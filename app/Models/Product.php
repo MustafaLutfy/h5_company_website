@@ -11,6 +11,7 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'store_id',
         'original_price',
         'new_price',
         'send_gift',
@@ -28,5 +29,10 @@ class Product extends Model
     public function orders()
     {
         return $this->hasMany(Order::class,'flight_id');
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
     }
 }

@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Order;
 use App\Models\Post;
 use App\Models\Image;
+use App\Models\Store;
 use Auth;
 class PagesController extends Controller
 {
@@ -43,11 +44,25 @@ class PagesController extends Controller
             return redirect()->route('landing');
         }  
     }
+    
+   
     public function news(){
         if (Auth::user() && Auth::user()->role == 1) {
             $posts = Post::get();
         return view('admin.views.news')->with([
             'posts' => $posts,
+        ]);
+        }
+        else{
+            return redirect()->route('landing');
+        }
+        
+    }
+    public function stores(){
+        if (Auth::user() && Auth::user()->role == 1) {
+            $stores = Store::get();
+        return view('admin.views.stores')->with([
+            'stores' => $stores,
         ]);
         }
         else{

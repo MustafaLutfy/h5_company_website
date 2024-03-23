@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Image;
 use App\Models\Order;
+use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Auth;
@@ -13,7 +14,9 @@ class ProductController extends Controller
 {
     public function index(){
         if (Auth::user() && Auth::user()->role == 1) {
-            return view('admin.views.add-product');
+            return view('admin.views.add-product')->with([
+                'stores' => Store::get(),
+            ]);
         }
         else{
             return redirect()->route('landing');
@@ -47,6 +50,7 @@ class ProductController extends Controller
             $files = $request->file('images');
             $product = Product::create([
                 'name' => $request->name,
+                'store_id' => $request->store_id,
                 'original_price' => $request->original_price,
                 'new_price' => $discount_price,
                 'is_instock' => 1,

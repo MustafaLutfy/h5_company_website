@@ -51,6 +51,10 @@
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+<head>
+  <title>Login</title>
+  <meta name="login" content="login page"/>
+</head>
 
 <form method="POST" action="{{ route('login') }}">
     @csrf

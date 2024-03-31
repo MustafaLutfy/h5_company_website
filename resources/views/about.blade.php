@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>About H5</title>
-  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
-  <meta name="author" content="Vincent Garreau" />
+  <meta name="description" content="this page is full of information about H5 company">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
   <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
@@ -190,7 +189,7 @@
           </div>
           <div class="mt-4 text-gray-100 col-span-5 px-4 ">
             <h2 class="text-xl font-semibold text-orange-400">{{$post->title}}</h2>
-            <p class="w-full mt-2 text-[16px] break-all w-[220px] text-wrap">{{$post->content}}</p>
+            <p class=" mt-2 text-[16px] break-all w-[220px] text-wrap">{{$post->content}}</p>
           </div>
        </div>
   

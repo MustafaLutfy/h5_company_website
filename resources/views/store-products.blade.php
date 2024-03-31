@@ -19,7 +19,7 @@
 scrollbar-width: none;  
 overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal text-base tracking-normal">
 
-  <section class="bg-gray-100 py-8 max-w-screen overflow-hidden h-screen">
+  <section class="bg-gray-100 py-8 max-w-screen overflow-hidden">
 
     <div class="md:absolute hidden blur-3xl w-20 h-[1000px] left-[70%] z-0 rounded-full bg-orange-200 rotate-45"></div>
     <div class="md:absolute hidden blur-3xl w-20 h-[640px] left-[30%] z-0 rounded-full bg-purple-200 rotate-45"></div>

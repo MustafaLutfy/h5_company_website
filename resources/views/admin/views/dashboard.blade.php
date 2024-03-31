@@ -1,5 +1,10 @@
 @include('admin.layouts.sidebar')
 
+<head>
+  <title>Admin Dashboard</title>
+  <meta name="admin-dashboard" content="here you can see admin dashboard"/>
+</head>
+
 <div class="px-4 pt-6 ml-[14%]">
     <div class="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
       <!-- Main widget -->

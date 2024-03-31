@@ -1,3 +1,12 @@
+
+<head>
+  <meta charset="utf-8">
+  <title>{{$product->name}}</title>
+  <meta name="description" content="this page is full of information about H5 company">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+
 <x-app-layout>
 
     <div class="font-[sans-serif] bg-white">
@@ -88,7 +97,7 @@
                
               </div>
               <div class="flex flex-wrap {{ Session::get('locale') == 'ar' ? 'justify-end' : ''}} gap-4 mt-10">
-                <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default" data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default" data-drawer-placement="right" class="inline-flex items-center font-semibold px-10 py-2 text-sm font-medium text-center text-white rounded-md bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-blue-800">
+                <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default" data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default" data-drawer-placement="right" class="inline-flex items-center font-semibold px-10 py-2 text-sm text-center text-white rounded-md bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-blue-800">
                   {{__('Buy Now')}}
               </button>
               <button type="button" class="min-w-[200px] px-4 py-2.5 border border-[#333] bg-transparent hover:bg-gray-50 text-[#333] text-sm font-bold rounded-md">{{__('Add to cart')}}</button>

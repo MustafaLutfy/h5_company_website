@@ -1,6 +1,10 @@
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+<head>
+  <title>Register</title>
+  <meta name="register" content="register page"/>
+</head>
 
 <form method="POST" action="{{ route('register') }}">
     @csrf

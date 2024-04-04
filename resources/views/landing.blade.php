@@ -6,13 +6,14 @@
   <meta name="description" content="H5 company landing page">
   <meta name="author" content="Mustafa Lutfy" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
   <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link rel="stylesheet" href="{{asset('particleJs/particles.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu-ul.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu.css')}}">
-  <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
+  <link rel="icon" href="https://i.ibb.co/qnpmf7v/h5-logo.png">
+  <meta property="og:image" content="https://i.ibb.co/bR7Yt8G/H5Card.jpg"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 

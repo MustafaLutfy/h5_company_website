@@ -8,11 +8,12 @@
     <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-    
+    <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
     <link rel="stylesheet" href="{{asset('js/home.css')}}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="{{asset('particleJs/js/stores-list.js')}}"></script>
 </head>
 
 <body style="-ms-overflow-style: none;  
@@ -138,19 +139,23 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
                      {{__('Store')}}
                   </a>
 
-                  <div class="flex items-center" id="store-nav-content">
-
-                      <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-                          <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                              <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
-                          </svg>
+                  <div class="flex flex-col items-center" id="store-nav-content">
+                      <button onclick="toggleList()" class="pl-3 inline-block  no-underline hover:text-black">
+                        <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
+                        </button>
                       </a>
+                      <ul class="bg-white p-2 flex flex-col absolute mt-8 rounded shadow-md hidden items-center" name="stores_list" id="stores_list">
+                        @foreach ($stores as $store)
+                        <a href="{{route('store.products', $store->id)}}" class="hover:bg-gray-100 w-full cursor-pointer py-0.5 px-1" value="{{$store->id}}">{{$store->name}}</a>
+                        @endforeach
+                      </ul>  
 
-                      <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+                      {{-- <a class="pl-3 inline-block no-underline hover:text-black" href="#">
                           <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                               <path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
                           </svg>
-                      </a>
+                      </a> --}}
 
                   </div>
             </div>

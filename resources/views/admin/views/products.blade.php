@@ -3,6 +3,7 @@
 <head>
     <title>All Products</title>
     <meta name="admin-products" content="here you can see all products"/>
+    <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
 </head>
 
 <div class="xl:ml-[18%] lg:ml-[24%] md:ml-[28%] p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">

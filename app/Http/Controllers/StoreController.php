@@ -21,9 +21,9 @@ class StoreController extends Controller
 
     public function show($id)
     {
-        $products = Product::where('store_id', $id)->get();
+        $store = Store::find($id);
         return view('store-products')->with([
-            'products' => $products
+            'store' => $store,
         ]);
     }
 

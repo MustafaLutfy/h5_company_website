@@ -28,9 +28,11 @@ class PagesController extends Controller
     public function store(){
         $carouselProducts = Product::where('original_price' , '<>' , 'new_price')->get();
         $products = Product::get();
+        $stores = Store::get();
         return view('store')->with([
             'carouselProducts' => $carouselProducts,
             'products' => $products,
+            'stores' => $stores,
         ]);
     }
     public function products(){

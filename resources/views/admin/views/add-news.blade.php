@@ -3,6 +3,8 @@
 <head>
   <title>Add News</title>
   <meta name="add-news" content="here you can add news posts"/>
+  <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
+
 </head>
 <div class="flex items-center justify-center h-[80%] px-4 pt-6 md:ml-[14%] ">
   <div class="p-4 mb-4 md:w-[60%] w-[90%] bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">

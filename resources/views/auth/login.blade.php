@@ -54,6 +54,7 @@
 <head>
   <title>Login</title>
   <meta name="login" content="login page"/>
+  <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
 </head>
 
 <form method="POST" action="{{ route('login') }}">

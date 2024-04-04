@@ -3,6 +3,7 @@
 <head>
   <title>Admin Dashboard</title>
   <meta name="admin-dashboard" content="here you can see admin dashboard"/>
+  <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
 </head>
 
 <div class="px-4 pt-6 ml-[14%]">

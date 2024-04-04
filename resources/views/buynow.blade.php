@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Buy Now</title>
   <meta name="description" content="this page is full of information about H5 company">
+  <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 

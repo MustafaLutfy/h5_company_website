@@ -11,6 +11,7 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link rel="stylesheet" href="{{asset('particleJs/particles.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu-ul.css')}}">
+  <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu.css')}}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

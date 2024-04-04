@@ -2,6 +2,7 @@
 <head>
   <title>Add Product</title>
   <meta name="add-products" content="here you can add new products"/>
+  <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
 </head>
 
 <div class="flex items-center justify-center h-[80%] px-4 mt-20 pt-6 md:ml-[14%] ">

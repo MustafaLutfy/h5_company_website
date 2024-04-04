@@ -4,6 +4,7 @@
 <head>
   <title>Register</title>
   <meta name="register" content="register page"/>
+  <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
 </head>
 
 <form method="POST" action="{{ route('register') }}">

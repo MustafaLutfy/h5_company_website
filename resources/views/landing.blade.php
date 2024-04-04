@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{asset('particleJs/css/menu-ul.css')}}">
   <link rel="stylesheet" href="{{asset('particleJs/css/menu.css')}}">
   <link rel="icon" href="https://i.ibb.co/qnpmf7v/h5-logo.png">
-  <meta property="og:image" content="https://i.ibb.co/bR7Yt8G/H5Card.jpg"/>
+  <meta property="og:image" content="https://i.ibb.co/tXtsnV6/Screenshot-2024-04-04-193844.png"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 

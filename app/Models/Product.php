@@ -16,6 +16,7 @@ class Product extends Model
         'new_price',
         'send_gift',
         'is_instock',
+        'product_order',
         'description',
         'description_ar',
     ];

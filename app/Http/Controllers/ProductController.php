@@ -54,6 +54,7 @@ class ProductController extends Controller
                 'original_price' => $request->original_price,
                 'new_price' => $discount_price,
                 'is_instock' => 1,
+                'product_order' => $request->product_order,
                 'description' => $request->description,
                 'description_ar' => $request->description_ar,
     
@@ -114,7 +115,25 @@ class ProductController extends Controller
             return redirect()->route('products');
         }
     
-    
+        public function editProduct(Request $request){
+        $product = Product::where('id', $request->id);
+            if (Auth::user() && Auth::user()->role == 1) {
+                $discount_price = $request->original_price - $request->original_price * $request->discount;
+                $product->update([
+                    'name' => $request->name,
+                    'store_id' => $request->store_id,
+                    'original_price' => $request->original_price,
+                    'new_price' => $discount_price,
+                    'is_instock' => 1,
+                    'product_order' => $request->product_order,
+                    'description' => $request->description,
+                    'description_ar' => $request->description_ar,
+        
+                ]);
+                return redirect()->route('products');
+            }
+
+        }
 
 }
 

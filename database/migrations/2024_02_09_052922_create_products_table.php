@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("original_price");
             $table->string("new_price")->nullable();
             $table->boolean("is_instock");
+            $table->boolean("product_order");
             $table->foreignId('store_id')->constrained('stores')->cascadeOnDelete();
             $table->longtext("description");
             $table->longtext("description_ar");

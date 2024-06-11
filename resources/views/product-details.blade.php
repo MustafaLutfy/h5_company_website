@@ -9,8 +9,70 @@
 
 
 <x-app-layout>
+  <section class="text-gray-600 h-screen overflow-y-hidden body-font">
+    <div class="container px-5 pt-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex ">
+      <div class="relative">
+        <div class="">
+          @foreach ($images as $image)
+          <div class="rounded-xl p-4">
+            <img src="{{url('images/'.$image->url)}}" alt="Product2" class="w-24 secondary-img cursor-pointer" />
+          </div>
+          @endforeach
+        </div>
+      </div>
+      <img alt="ecommerce" id="main-img" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{url('images/'.$images[0]->url)}}">
+      
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+      <h2 class="text-sm title-font text-gray-500 tracking-widest">{{$product->store->name}}</h2>
+      <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{$product->name}}</h1>
+      <div class="flex mb-4">
+        @if (Session::get('locale') == 'ar')
+        <p class="mt-8 text-right">
+          {{$product->description_ar}}
+        </p>
+      @else
+        <p class="mt-8 ">
+          {{$product->description}}
+        </p>
+      @endif
+      </div>
+      <p class="leading-relaxed"></p>
+      <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
+        
+      </div>
+      <div class="flex">
+        <div class="flex flex-wrap gap-4 mt-6">
+          @if($product->original_price == $product->new_price)
+            <p class="text-[#333] text-3xl font-bold">{{$product->original_price}} {{__('IQD')}}</p>
+          
+          @else
+          @if (Session::get('locale') == 'ar')
+          <p class="text-[#333] text-3xl font-bold">{{__('IQD')}} {{$product->new_price}}</p>
+          <p class="text-gray-400 text-xl"><strike>{{__('IQD')}} {{$product->original_price}}</strike></p>  
+          @else
+          <p class="text-[#333] text-3xl font-bold">{{$product->new_price}} {{__('IQD')}}</p>
+          <p class="text-gray-400 text-xl"><strike>{{$product->original_price}} {{__('IQD')}}</strike></p>  
+          @endif
+          @endif
+        </div>
+        
+      </div>
+      <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default" data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default" data-drawer-placement="right" class="inline-flex items-center font-semibold px-10 h-12 mt-8 py-2 text-sm text-center text-white rounded-md bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-blue-800">
+        {{__('Buy Now')}}
+    </button>
+    <button type="button" class="min-w-[140px] ml-3 px-4 h-12 border border-[#333] bg-transparent hover:bg-gray-50 text-[#333] text-sm font-bold rounded-md">{{__('Add to cart')}}</button>
 
-    <div class="font-[sans-serif] bg-white">
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+
+
+
+    {{-- <div class="font-[sans-serif] bg-white">
         <div class="p-6 lg:max-w-7xl max-w-4xl mx-auto">
           <div class="grid items-start grid-cols-1 rounded-xl lg:grid-cols-5 gap-12 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.3)] p-6">
             <div class="lg:col-span-3 w-full lg:sticky top-0 text-center">
@@ -47,7 +109,7 @@
                 <p class="text-gray-400 text-xl"><strike>{{$product->original_price}} {{__('IQD')}}</strike></p>  
                 @endif
                 @endif
-              </div>
+              </div> --}}
               {{-- <div class="flex space-x-2 mt-4">
                 <svg class="w-5 fill-[#333]" viewBox="0 0 14 13" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +138,7 @@
                 </svg>
                 <h4 class="text-[#333] text-base">3 Reviews</h4>
               </div> --}}
-              <div class="mt-10">
+              {{-- <div class="mt-10"> --}}
                 {{-- <h3 class="text-lg font-bold text-gray-800">Choose a Color</h3>
                 <div class="flex flex-wrap gap-4 mt-4">
                   <button type="button" class="w-12 h-12 bg-black border-2 border-white hover:border-gray-800 rounded-full shrink-0"></button>
@@ -84,7 +146,7 @@
                   <button type="button" class="w-12 h-12 bg-gray-100 border-2 border-white hover:border-gray-800 rounded-full shrink-0"></button>
                   <button type="button" class="w-12 h-12 bg-blue-400 border-2 border-white hover:border-gray-800 rounded-full shrink-0"></button>
                 </div> --}}
-              </div>
+              {{-- </div>
               <div>
                 @if (Session::get('locale') == 'ar')
                   <p class="mt-8 text-right">
@@ -107,7 +169,7 @@
           </div>
         
         </div>
-      </div>
+      </div> --}}
       
 
       <script src="{{asset('js/image.js')}}"></script>

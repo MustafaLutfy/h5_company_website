@@ -59,6 +59,7 @@ Route::middleware('localization')->group(function () {
         Route::post('/create', [ProductController::class, 'create'])->name('create')->middleware(['auth', 'verified']);
         Route::delete('/order/delete/{id}', [ProductController::class, 'deleteOrder'])->name('order.delete')->middleware(['auth', 'verified']);
         Route::delete('/product/delete/{id}', [ProductController::class, 'deleteProduct'])->name('product.delete')->middleware(['auth', 'verified']);
+        Route::put('/product/edit/{id}', [ProductController::class, 'editProduct'])->name('product.edit')->middleware(['auth', 'verified']);
         Route::delete('/news/delete/{id}', [NewsController::class, 'deletePost'])->name('post.delete')->middleware(['auth', 'verified']);
         Route::delete('/store/delete/{id}', [StoreController::class, 'deleteStore'])->name('store.delete')->middleware(['auth', 'verified']);
     });

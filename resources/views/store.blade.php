@@ -38,7 +38,7 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <!-- Item 1 -->
         @foreach ($carouselProducts as $carouselProduct)
-        <a href="{{route('product', $carouselProduct->id)}}" class="hidden bg-blue-500 duration-700 ease-in-out" data-carousel-item>
+        <a href="{{route('product', $carouselProduct->id)}}" class="hidden bg-[#090A0E] duration-700 ease-in-out" data-carousel-item>
           <div class="grid md:grid-cols-3 grid-cols-2 md:mx-24 w-full h-full">
             <div class="flex items-center justify-center">
                 <img class="p-8 col-span-1 md:w-[350px]" src="{{asset('images/'.App\Models\Image::where('product_id', $carouselProduct->id)->get()->first()->url)}}" alt="product image" />
@@ -67,11 +67,19 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
             </div>
               <div class="mt-2">
                 @if (Session::get('locale') == 'ar')
-                <span class="md:text-xl text-xs line-through font-semibold text-gray-200 ml-2 dark:text-white">{{__('IQD')}} {{number_format($carouselProduct->original_price, 0)}}</span>
-                <span class="md:text-2xl text-md font-bold text-gray-100 dark:text-white">{{__('IQD')}} {{number_format($carouselProduct->new_price, 0)}}</span>
+                    @if($carouselProduct->new_price == $carouselProduct->original_price)
+                    <span class="md:text-2xl text-md font-bold text-gray-100 dark:text-white">{{__('IQD')}} {{number_format($carouselProduct->original_price, 0)}}</span>
+                    @else
+                    <span class="md:text-xl text-xs line-through font-semibold text-gray-200 ml-2 dark:text-white">{{__('IQD')}} {{number_format($carouselProduct->original_price, 0)}}</span>
+                    <span class="md:text-2xl text-md font-bold text-gray-100 dark:text-white">{{__('IQD')}} {{number_format($carouselProduct->new_price, 0)}}</span>
+                    @endif
                 @else
-                <span class="md:text-2xl text-md font-bold text-gray-100 dark:text-white">{{number_format($carouselProduct->new_price, 0)}} IQD</span>
-                <span class="md:text-xl text-xs line-through font-semibold text-gray-200 ml-2 dark:text-white">{{number_format($carouselProduct->original_price, 0)}} IQD</span>
+                    @if($carouselProduct->new_price == $carouselProduct->original_price)
+                    <span class="md:text-2xl text-md font-bold text-gray-100 dark:text-white">{{number_format($carouselProduct->original_price, 0)}} IQD</span>
+                    @else
+                    <span class="md:text-2xl text-md font-bold text-gray-100 dark:text-white">{{number_format($carouselProduct->new_price, 0)}} IQD</span>
+                    <span class="md:text-xl text-xs line-through font-semibold text-gray-200 ml-2 dark:text-white">{{number_format($carouselProduct->original_price, 0)}} IQD</span>
+                    @endif
                 @endif
              </div>
              <div >

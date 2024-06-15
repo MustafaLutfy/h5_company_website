@@ -132,17 +132,17 @@
                                     Delete
                                 </button>
                             </form>
-                            <form action="" method="POST" class="h-full">
-                                @method('PUT')
-                                @csrf
-                                <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default" data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default" data-drawer-placement="right" class="group w-24 h-full justify-center text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-600 dark:blue-600 dark:hover:text-blue-600 dark:hover:blue-600 dark:focus:ring-red-900">
-                                    <svg class="w-4 h-4 mr-1 -ml-1 fill-blue-600 group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 18.08V19h.92l9.06-9.06l-.92-.92z" opacity="0.3"/><path d="M20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.1-.7.29l-1.83 1.83l3.75 3.75zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM5.92 19H5v-.92l9.06-9.06l.92.92z"/></svg>                                    Edit
-                                </button>
-                            </form>
-                
+                                <a href="{{route("product.edit.page", $product->id)}}">
+                                    <button type="button" id="updateProductButton" class="group w-24 h-full justify-center text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-600 dark:blue-600 dark:hover:text-blue-600 dark:hover:blue-600 dark:focus:ring-red-900">
+                                        <svg class="w-4 h-4 mr-1 -ml-1 fill-blue-600 group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 18.08V19h.92l9.06-9.06l-.92-.92z" opacity="0.3"/><path d="M20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.1-.7.29l-1.83 1.83l3.75 3.75zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM5.92 19H5v-.92l9.06-9.06l.92.92z"/></svg>Edit
+                                    </button>
+                                </a>
+                               
+                                
                         </td>
                     </tr>
                        @endforeach
+                       <input type="hidden" id="clickedButtonId" value="">
                     </tbody>
                 </table>
             </div>
@@ -179,7 +179,9 @@
         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         <span class="sr-only">Close menu</span>
     </button>
+    
     <form action="{{route('product.edit', $product->id)}}" method="POST">
+        
         @method("PUT")
         @csrf
         <div class="space-y-4">
@@ -256,6 +258,8 @@
 </div>
 
 
+
+
 <!-- Add Product Drawer -->
 <div id="drawer-create-product-default" class="fixed top-0 right-0 z-40 w-full h-screen max-w-xs p-4 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label" aria-hidden="true">
     <h5 id="drawer-label" class="inline-flex items-center mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">New Product</h5>
@@ -311,3 +315,6 @@
             </div>
     </form>
 </div>
+
+
+

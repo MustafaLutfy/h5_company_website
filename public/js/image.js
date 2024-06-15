@@ -8,3 +8,14 @@ for (let index = 0; index < secondaryImg.length; index++) {
      });
 }
 
+
+let w = window.innerWidth;
+
+if(w >= 600){
+    document.getElementById('img-phone').classList.add('hidden');
+    document.getElementById('img-pc').classList.remove('hidden');
+}
+else{
+    document.getElementById('img-phone').classList.remove('hidden');
+    document.getElementById('img-pc').classList.add('hidden');
+}

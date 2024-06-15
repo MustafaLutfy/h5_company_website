@@ -4,21 +4,63 @@
   <title>{{$product->name}}</title>
   <meta name="description" content="this page is full of information about H5 company">
   <link rel="icon" href="{{ url('images/h5-logo.svg') }}">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="{{'js/image.js'}}"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <style>
+      .swiper-wrapper {
+      width: 0%;
+      height: max-content !important;
+      /* padding-bottom: 64px !important; */
+      -webkit-transition-timing-function: linear !important;
+      transition-timing-function: linear !important;
+      position: relative;
+      }
+      .swiper-pagination-bullet {
+      background: #4F46E5;
+      }
+      .swiper-pagination-bullet-active {
+      background: #4F46E5 !important;
+      }
+    </style>
+    
 </head>
 
 
-<x-app-layout>
-  <section class="text-gray-600 h-screen overflow-y-hidden body-font">
+<x-app-layout class="">
+  <section class="text-gray-600 body-font">
     <div class="container px-5 pt-24 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex ">
-      <div class="relative">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap md:flex-nowrap">
+      
+      <div class=" overflow-x-hidden">
         <div class="">
+        
+          <div id="img-phone" class="overflow-hidden mt-4 w-[200%] flex justify-center">
+            <div class="w-[50%] pr-[30%] mr-[20%] relative">
+                <div class="swiper centered-slide-carousel swiper-container ">
+                <div class="swiper-wrapper flex translate-x-[-100px]">
+                  @foreach ($images as $image)
+                  <div class="swiper-slide pb-3">
+                    <div class="w-24 h-24 rounded-md border-[#EB394D]">
+                     <img class="secondary-img rounded-md size-full" src="{{url('images/'.$image->url)}}" alt="Product2" class="w-24 secondary-img cursor-pointer" />
+                     </div>
+                  </div>
+                  @endforeach
+                </div>
+                <div class="swiper-pagination "></div>
+              </div>
+            </div>
+        </div>
+        <div id="img-pc">
           @foreach ($images as $image)
-          <div class="rounded-xl p-4">
+          <div class="rounded-xl p-4 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.3)]">
             <img src="{{url('images/'.$image->url)}}" alt="Product2" class="w-24 secondary-img cursor-pointer" />
           </div>
-          @endforeach
+            @endforeach  
+        </div>
+      
         </div>
       </div>
       <img alt="ecommerce" id="main-img" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{url('images/'.$images[0]->url)}}">
@@ -331,3 +373,33 @@
             </div>
     </form>
 </div>
+
+
+<script>
+  var swiper = new Swiper(".centered-slide-carousel", {
+   centeredSlides: false,
+   paginationClickable: true,
+   loop: false,
+   spaceBetween: 40 ,
+   slideToClickedSlide: false,
+   pagination: {
+     el: ".centered-slide-carousel .swiper-pagination",
+     clickable: true,
+   },
+   breakpoints: {
+     1920: {
+       slidesPerView: 3,
+       spaceBetween: 0
+     },
+     1028: {
+       slidesPerView: 3,
+       spaceBetween: 0
+     },
+     990: {
+       slidesPerView: 3,
+       spaceBetween: 0
+     }
+   }
+  });
+  
+</script>

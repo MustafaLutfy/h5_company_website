@@ -26,8 +26,8 @@ class PagesController extends Controller
             'posts' => Post::get()->take(4),
         ]);    }
     public function store(){
-        $carouselProducts = Product::orderBy('new_price', 'DESC')->where('original_price' , '<>' , 'new_price')->take(5)->get();
-        $products = Product::get();
+        $carouselProducts = Product::orderBy('new_price')->where('original_price' , '<>' , 'new_price')->take(5)->get();
+        $products = Product::orderBy('product_order', 'DESC')->get();
         $stores = Store::get();
         return view('store')->with([
             'carouselProducts' => $carouselProducts,
@@ -37,11 +37,28 @@ class PagesController extends Controller
     }
     public function products(){
         if (Auth::user() && Auth::user()->role == 1) {
-            $products = Product::orderBy('product_order')->get();
+            $products = Product::orderBy('product_order','DESC')->get();
             $stores = Store::get();
         return view('admin.views.products')->with([
             'products' => $products,
             'stores' => $stores,
+        ]);
+        }
+        else{
+            return redirect()->route('landing');
+        }  
+    }
+
+    public function productEdit($id){
+        $editProduct = Product::find($id);
+        $discount = ($editProduct->original_price - $editProduct->new_price) / $editProduct->original_price;
+        if (Auth::user() && Auth::user()->role == 1) {
+            $stores = Store::get();
+            $product = Product::find($id);
+        return view('admin.views.products-edit')->with([
+            'stores' => $stores,
+            'product' => $editProduct,
+            'discount' => $discount,
         ]);
         }
         else{

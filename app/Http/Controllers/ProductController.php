@@ -115,25 +115,54 @@ class ProductController extends Controller
             return redirect()->route('products');
         }
     
-        public function editProduct(Request $request){
-        $product = Product::where('id', $request->id);
-            if (Auth::user() && Auth::user()->role == 1) {
-                $discount_price = $request->original_price - $request->original_price * $request->discount;
-                $product->update([
-                    'name' => $request->name,
-                    'store_id' => $request->store_id,
-                    'original_price' => $request->original_price,
-                    'new_price' => $discount_price,
-                    'is_instock' => 1,
-                    'product_order' => $request->product_order,
-                    'description' => $request->description,
-                    'description_ar' => $request->description_ar,
-        
+        public function editProduct(Request $request, $id){
+
+            if($request->hasFile('images'))
+            {
+            $files = $request->file('images');
+
+            $product = Product::find($id);
+            $discount_price = $request->original_price - $request->original_price * $request->discount;
+            $product->update([
+                'name' => $request->name,
+                'store_id' => $request->store_id,
+                'original_price' => $request->original_price,
+                'new_price' => $discount_price,
+                'is_instock' => 1,
+                'product_order' => $request->product_order,
+                'description' => $request->description,
+                'description_ar' => $request->description_ar,
+            ]);
+            
+            Image::where('product_id', $id)->delete();
+
+            foreach($files as $file){
+                
+                $filename = time() . $file->getClientOriginalName();
+                $file->move(public_path('images'), $filename);
+                Image::create([
+                    'url' => $filename,
+                    'product_id' => $product->id,
                 ]);
-                return redirect()->route('products');
             }
 
         }
+        else{
+            $product = Product::find($id);
+            $discount_price = $request->original_price - $request->original_price * $request->discount;
+            $product->update([
+                'name' => $request->name,
+                'store_id' => $request->store_id,
+                'original_price' => $request->original_price,
+                'new_price' => $discount_price,
+                'is_instock' => 1,
+                'product_order' => $request->product_order,
+                'description' => $request->description,
+                'description_ar' => $request->description_ar,
+            ]);
 
+        }
+        return redirect()->route('products');
+
+    }
 }
-

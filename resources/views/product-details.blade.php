@@ -38,9 +38,9 @@
         <div class="">
         
           <div id="img-phone" class="overflow-hidden mt-4 w-[200%] flex justify-center">
-            <div class="w-[50%] pr-[30%] mr-[20%] relative">
+            <div class="w-[30%] pl-[20%] mr-[25%] relative">
                 <div class="swiper centered-slide-carousel swiper-container ">
-                <div class="swiper-wrapper flex translate-x-[-100px]">
+                <div class="swiper-wrapper flex translate-x-[-330px]">
                   @foreach ($images as $image)
                   <div class="swiper-slide pb-3">
                     <div class="w-24 h-24 rounded-md border-[#EB394D]">

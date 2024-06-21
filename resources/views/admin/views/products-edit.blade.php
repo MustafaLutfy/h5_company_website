@@ -31,17 +31,17 @@
                 <div>
                   <label for="discount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Discount</label>
                   <select id="discount" name="discount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option value="0.0" {{ $discount == 0.0 ? 'selected' : '' }}>No Discount</option>
-                        <option value="0.05" {{ $discount == 0.05 ? 'selected' : '' }}>5%</option>
-                        <option value="0.1" {{ $discount == 0.1 ? 'selected' : '' }}>10%</option>
-                        <option value="0.2" {{ $discount == 0.2 ? 'selected' : '' }}>20%</option>
-                        <option value="0.3" {{ $discount == 0.3 ? 'selected' : '' }}>30%</option>
-                        <option value="0.4" {{ $discount == 0.4 ? 'selected' : '' }}>40%</option>
-                        <option value="0.5" {{ $discount == 0.5 ? 'selected' : '' }}>50%</option>
-                        <option value="0.6" {{ $discount == 0.6 ? 'selected' : '' }}>60%</option>
-                        <option value="0.7" {{ $discount == 0.7 ? 'selected' : '' }}>70%</option>
-                        <option value="0.8" {{ $discount == 0.8 ? 'selected' : '' }}>80%</option>
-                        <option value="0.9" {{ $discount == 0.9 ? 'selected' : '' }}>90%</option>
+                        <option value="0.0" {{ $discount  == 0.0 ? 'selected' : '' }}>No Discount</option>
+                        <option value="0.05" {{ $discount  == 0.05 ? 'selected' : '' }}>5%</option>
+                        <option value="0.1" {{ $discount  == 0.1 ? 'selected' : '' }}>10%</option>
+                        <option value="0.2" {{ $discount  == 0.2 ? 'selected' : '' }}>20%</option>
+                        <option value="0.3" {{ $discount  == 0.3 ? 'selected' : '' }}>30%</option>
+                        <option value="0.4" {{ $discount  == 0.4 ? 'selected' : '' }}>40%</option>
+                        <option value="0.5" {{ $discount  == 0.5 ? 'selected' : '' }}>50%</option>
+                        <option value="0.6" {{ $discount  == 0.6 ? 'selected' : '' }}>60%</option>
+                        <option value="0.7" {{ $discount  == 0.7 ? 'selected' : '' }}>70%</option>
+                        <option value="0.8" {{ $discount  == 0.8 ? 'selected' : '' }}>80%</option>
+                        <option value="0.9" {{ $discount  == 0.9 ? 'selected' : '' }}>90%</option>
 
                   </select>
               </div>            

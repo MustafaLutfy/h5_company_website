@@ -63,7 +63,7 @@
       
         </div>
       </div>
-      <img alt="ecommerce" id="main-img" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{url('images/'.$images[0]->url)}}">
+      <img alt="ecommerce" id="main-img" class="lg:w-1/2 w-full lg:h-auto object-cover object-center rounded" src="{{url('images/'.$images[0]->url)}}">
       
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
       <h2 class="text-sm title-font text-gray-500 tracking-widest">{{$product->store->name}}</h2>

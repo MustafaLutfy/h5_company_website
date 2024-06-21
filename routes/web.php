@@ -85,3 +85,8 @@ Route::get('/locale/{locale}', function (Request $request, $locale) {
 
 
 require __DIR__.'/auth.php';
+
+
+
+
+Route::view('LightOfDestiny', 'image');

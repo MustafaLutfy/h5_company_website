@@ -33,18 +33,62 @@
             </nav>
             <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Stores</h1>
         </div>
-        <div class="items-center  justify-between block sm:flex md:divide-x md:divide-gray-100 dark:divide-gray-700">
+        <div class="items-center block sm:flex md:divide-x md:divide-gray-100 dark:divide-gray-700">
             <div class="flex items-center mb-4 sm:mb-0">
-                <form class="sm:pr-3" action="{{route('add.store')}}" method="POST">
-                    @csrf
-                    <label for="create_store" class="sr-only">Search</label>
-                    <div class="relative flex items-center w-48 mt-1 sm:w-64 xl:w-96">
-                        <input type="text" name="name" id="create_store" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Create new store">
-                        <button type="submit" class="inline-flex justify-center ml-3 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 448 512"><path fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32v144H48c-17.7 0-32 14.3-32 32s14.3 32 32 32h144v144c0 17.7 14.3 32 32 32s32-14.3 32-32V288h144c17.7 0 32-14.3 32-32s-14.3-32-32-32H256z"/></svg>                        
-                        </button>
-                    </div>
-                </form>
+                <form class="sm:pr-3" action="{{route('add.store')}}" method="POST" enctype="multipart/form-data">  
+                    @csrf  
+                    <div class="flex gap-3">  
+                        <!-- Store Name Input -->  
+                        <div class="relative flex items-center w-48 sm:w-64 xl:w-96">  
+                            <input type="text"   
+                                   name="name"   
+                                   id="create_store"   
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"   
+                                   placeholder="Create new store">  
+                        </div>  
+                
+                        <!-- Image Upload Input -->  
+                        <div class="relative flex items-center">  
+                            <label for="store_image" class="flex items-center gap-2 cursor-pointer">  
+                                <div class="bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">  
+                                    <div class="flex items-center gap-2">  
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">  
+                                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/>  
+                                            <line x1="16" y1="5" x2="22" y2="5"/>  
+                                            <line x1="19" y1="2" x2="19" y2="8"/>  
+                                            <circle cx="9" cy="9" r="2"/>  
+                                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>  
+                                        </svg>  
+                                    </div>  
+                                </div>  
+                            </label>  
+                            <input type="file"   
+                                   name="images[]"   
+                                   id="store_image"   
+                                   accept="image/*"  
+                                   class="hidden">  
+                        </div>  
+                
+                        <!-- Error Messages -->  
+                        @error('name')  
+                            <span class="text-red-500 text-sm">{{ $message }}</span>  
+                        @enderror  
+                        @error('images')  
+                            <span class="text-red-500 text-sm">{{ $message }}</span>  
+                        @enderror  
+                
+                        <!-- Submit Button -->  
+                        <div class="flex justify-end">  
+                            <button type="submit" class="inline-flex items-center justify-center px-4 py-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">  
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" viewBox="0 0 448 512">  
+                                    <path fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32v144H48c-17.7 0-32 14.3-32 32s14.3 32 32 32h144v144c0 17.7 14.3 32 32 32s32-14.3 32-32V288h144c17.7 0 32-14.3 32-32s-14.3-32-32-32H256z"/>  
+                                </svg>  
+                                Create Store  
+                            </button>  
+                        </div>  
+                    </div>  
+                </form>  
+                
                 {{-- <div class="flex items-center w-full sm:justify-end">
                     <div class="flex pl-2 space-x-1">
                         <a href="#" class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -68,6 +112,69 @@
         </div>
     </div>
 </div>
+<div id="editModal" class="fixed inset-0 z-50 hidden overflow-y-auto">  
+    <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"></div>  
+    
+    <div class="flex min-h-full items-center justify-center p-4">  
+        <div class="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">  
+            <!-- Modal Header -->  
+            <div class="absolute right-0 top-0 pr-4 pt-4">  
+                <button type="button" onclick="closeEditModal()" class="text-gray-400 hover:text-gray-500">  
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">  
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />  
+                    </svg>  
+                </button>  
+            </div>  
+            
+            <!-- Modal Content -->  
+            <div class="sm:flex sm:items-start">  
+                <div class="mt-3 text-center sm:mt-0 sm:text-left w-full">  
+                    <h3 class="text-lg font-semibold leading-6 text-gray-900 dark:text-white mb-4">Edit Store</h3>  
+                    
+                    <form id="editStoreForm" action="" method="POST" enctype="multipart/form-data" class="space-y-4">  
+                        @csrf  
+                        @method('PUT')  
+                        
+                        <!-- Store Name -->  
+                        <div>  
+                            <label for="edit_store_name" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Store Name</label>  
+                            <input type="text"   
+                                   name="name"   
+                                   id="edit_store_name"   
+                                   class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white">  
+                        </div>  
+                        
+                        <!-- Current Image Preview -->  
+                        <div>  
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">Current Image</label>  
+                            <img id="current_image_preview" src="" alt="Current store image" class="mt-2 h-24 w-24 rounded-full object-cover">  
+                        </div>  
+                        
+                        <!-- New Image Upload -->  
+                        <div>  
+                            <label for="edit_store_image" class="block text-sm font-medium text-gray-700 dark:text-gray-200">New Image (optional)</label>  
+                            <input type="file"   
+                                   name="images[]"   
+                                   id="edit_store_image"   
+                                   accept="image/*"  
+                                   class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 dark:text-gray-400">  
+                        </div>  
+                        
+                        <!-- Submit Button -->  
+                        <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">  
+                            <button type="submit" class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto">  
+                                Update Store  
+                            </button>  
+                            <button type="button" onclick="closeEditModal()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">  
+                                Cancel  
+                            </button>  
+                        </div>  
+                    </form>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+</div>  
 <div class="flex flex-col xl:ml-[18%] lg:ml-[24%] md:ml-[28%]">
     <div class="overflow-x-auto">
         <div class="inline-block min-w-full align-middle">
@@ -126,7 +233,17 @@
                                     Delete
                                 </button>
                             </form>
+
+                            <a>
+                                <button data-store-id="{{ $store->id }}"  
+                                    data-store-name="{{ $store->name }}"  
+                                    data-store-image="{{ $store->image }}"  
+                                    onclick="openEditModal(this)"   type="button" id="updateProductButton" class="group w-24 h-full justify-center text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-600 dark:blue-600 dark:hover:text-blue-600 dark:hover:blue-600 dark:focus:ring-red-900">
+                                    <svg class="w-4 h-4 mr-1 -ml-1 fill-blue-600 group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 18.08V19h.92l9.06-9.06l-.92-.92z" opacity="0.3"/><path d="M20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.1-.7.29l-1.83 1.83l3.75 3.75zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM5.92 19H5v-.92l9.06-9.06l.92.92z"/></svg>Edit
+                                </button>
+                            </a>
                         </td>
+                       
                     </tr>
                        @endforeach
                     </tbody>
@@ -288,3 +405,42 @@
             </div>
     </form> --}}
 </div>
+
+<script>  
+ function openEditModal(element) {  
+    const storeId = element.dataset.storeId;  
+    const storeName = element.dataset.storeName;  
+    const storeImage = element.dataset.storeImage;  
+
+    // Set form action URL  
+    const form = document.getElementById('editStoreForm');  
+    form.action = `/admin/store/edit/${storeId}`; 
+    
+    // Set current values  
+    document.getElementById('edit_store_name').value = storeName;  
+    document.getElementById('current_image_preview').src = `{{ asset('store_images') }}/${storeImage}`;  
+    
+    // Show modal  
+    document.getElementById('editModal').classList.remove('hidden');  
+}  
+function closeEditModal() {  
+    // Hide modal  
+    document.getElementById('editModal').classList.add('hidden');  
+    
+    // Reset form  
+    document.getElementById('editStoreForm').reset();  
+    
+    // Reset image preview to default if needed  
+    document.getElementById('current_image_preview').src = '';  
+}
+    // Optional: Preview new image when selected  
+    document.getElementById('edit_store_image').addEventListener('change', function(e) {  
+        if (e.target.files && e.target.files[0]) {  
+            const reader = new FileReader();  
+            reader.onload = function(e) {  
+                document.getElementById('current_image_preview').src = e.target.result;  
+            }  
+            reader.readAsDataURL(e.target.files[0]);  
+        }  
+    });  
+    </script>  

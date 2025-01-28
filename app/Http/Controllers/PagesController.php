@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Post;
+use App\Models\Cart;
 use App\Models\Image;
 use App\Models\Store;
 use Auth;
@@ -27,7 +28,7 @@ class PagesController extends Controller
         ]);    }
     public function store(){
         $carouselProducts = Product::orderBy('new_price')->where('original_price' , '<>' , 'new_price')->take(5)->get();
-        $products = Product::orderBy('product_order', 'DESC')->get();
+        $products = Product::where('store_id', '7')->orderBy('product_order', 'DESC')->get();
         $stores = Store::get();
         return view('store')->with([
             'carouselProducts' => $carouselProducts,
@@ -94,9 +95,9 @@ class PagesController extends Controller
 
     public function orders(){
         if (Auth::user() && Auth::user()->role == 1) {
-            $orders = Order::get();
+            $orders = Cart::orderBy('created_at', 'DESC')->get();
             return view('admin.views.orders')->with([
-                'orders' => $orders,
+                'carts' => $orders,
             ]);
         }
         else{

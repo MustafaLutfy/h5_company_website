@@ -24,6 +24,20 @@
       font-weight: 400;
       font-style: normal;
     }
+    .prose a {  
+    padding: 1px 4px;  
+    border-radius: 4px;  
+    color: #60A5FA;  
+    text-decoration: none;  
+    display: inline-flex;  
+    flex-direction: column;  
+    align-items: flex-start;  
+    text-decoration: underline;
+    transition: all 0.2s ease;  
+}  
+.prose a:hover {  
+  background-color: rgba(96, 165, 250, 0.1);  
+}  
   </style>
 </head>
 
@@ -152,25 +166,90 @@
       </div>
 
     </div>
-    <div class="flex flex-col gap-4 h-[100%] w-full mt-20 justify-center items-center">
+    <div class="flex flex-col gap-4 w-full mt-20 justify-center items-center">
       <div class="w-[80%]">
         <h2 class="text-orange-400 text-2xl {{ Session::get('locale') == 'ar' ? 'text-right' : ''}} border-b-2 border-orange-400 my-8">{{__('Latest Updates')}}</h2>
       </div>
+      @if (Session::get('locale') == 'ar')
       @foreach ($posts as $post)
-      <div class="grid grid-cols-6 w-[80%] h-40 bg-[#212121] rounded-lg py-4">
-        <div class="col-span-1 flex items-center justify-center h-full">
-          <img class="w-[60%]  rounded-full" src="{{asset('news_images/'.$post->image)}}" alt="">
+      <div class="grid grid-cols-6 w-[80%] h-auto bg-[#212121] rounded-lg py-4 mb-4">
+          <div class="text-gray-100 col-span-5 px-4">
+              <h2 class="text-xl font-semibold text-orange-400 line-clamp-2">{{ $post->title }}</h2>
+              <div class="w-full mt-2 text-lg direction-rtl prose prose-invert max-w-none" x-data="{ expanded: false }">
+                  <div x-show="!expanded">
+                      {!! Str::limit(strip_tags($post->content), 200) !!}
+                      @if (strlen(strip_tags($post->content)) > 200)
+                          <button @click="expanded = true"
+                              class="text-orange-400 hover:text-orange-300 text-sm font-medium">
+                              أظهار المزيد
+                          </button>
+                      @endif
+                  </div>
+                  <div x-show="expanded">
+                      {!! $post->content !!}
+                      <button @click="expanded = false"
+                          class="text-orange-400 hover:text-orange-300 text-sm font-medium">
+                          أخفاء المزيد
+                      </button>
+                  </div>
+              </div>
+              <div class="mt-2 text-sm text-gray-400">
+                  <span>Posted: {{ $post->created_at->diffForHumans() }}</span>
+              </div>
+          </div>
+          <div class="col-span-1 flex items-center justify-center">
+            <img class="w-[60%] aspect-square object-cover rounded-full"
+                src="{{ asset('news_images/' . $post->image) }}" alt="{{ $post->title }}">
         </div>
-        <div class="text-gray-100 col-span-5 px-4 ">
-          <h2 class="text-xl font-semibold text-orange-400">{{$post->title}}</h2>
-          <p class="w-full mt-2 text-lg overflow-hidden">{{$post->content}}.</p>
+      </div>
+  @endforeach
+  @else
+  @foreach ($posts as $post)
+      <div class="grid grid-cols-6 w-[80%] h-auto bg-[#212121] rounded-lg py-4 mb-4">
+        @if ($post->image)
+        <div class="col-span-1 flex items-center justify-center">
+          <img class="w-[60%] aspect-square object-cover rounded-full"
+              src="{{ asset('news_images/' . $post->image) }}" alt="{{ $post->title }}">
         </div>
-     </div>
-      @endforeach
+        @else
+        {{-- <div class="col-span-1 flex items-center justify-center">
+          <div class="w-[60%] aspect-square object-cover rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#d0d0d0" d="M18.75 20H5.25a3.25 3.25 0 0 1-3.245-3.066L2 16.75V6.25a2.25 2.25 0 0 1 2.096-2.245L4.25 4h12.5a2.25 2.25 0 0 1 2.245 2.096L19 6.25V7h.75a2.25 2.25 0 0 1 2.245 2.096L22 9.25v7.5a3.25 3.25 0 0 1-3.066 3.245zH5.25zm-13.5-1.5h13.5a1.75 1.75 0 0 0 1.744-1.607l.006-.143v-7.5a.75.75 0 0 0-.648-.743L19.75 8.5H19v7.75a.75.75 0 0 1-.648.743L18.25 17a.75.75 0 0 1-.743-.648l-.007-.102v-10a.75.75 0 0 0-.648-.743L16.75 5.5H4.25a.75.75 0 0 0-.743.648L3.5 6.25v10.5a1.75 1.75 0 0 0 1.606 1.744zh13.5zm6.996-4h3.006a.75.75 0 0 1 .102 1.493l-.102.007h-3.006a.75.75 0 0 1-.102-1.493zh3.006zm-3.003-3.495a.75.75 0 0 1 .75.75v3.495a.75.75 0 0 1-.75.75H5.748a.75.75 0 0 1-.75-.75v-3.495a.75.75 0 0 1 .75-.75zm-.75 1.5H6.498V14.5h1.995zm3.753-1.5h3.006a.75.75 0 0 1 .102 1.493l-.102.007h-3.006a.75.75 0 0 1-.102-1.494zh3.006zM5.748 7.502h9.504a.75.75 0 0 1 .102 1.494l-.102.006H5.748a.75.75 0 0 1-.102-1.493zh9.504z"/></svg>
+          </div>
+        </div> --}}
+        @endif
+        
+          <div class="text-gray-100 col-span-5 px-4">
+              <h2 class="text-xl font-semibold text-orange-400 line-clamp-2">{{ $post->title }}</h2>
+              <div class="w-full mt-2 text-lg prose prose-invert max-w-none" x-data="{ expanded: false }">
+                  <div x-show="!expanded">
+                      {!! Str::limit(strip_tags($post->content), 200) !!}
+                      @if (strlen(strip_tags($post->content)) > 200)
+                          <button @click="expanded = true"
+                              class="text-orange-400 hover:text-orange-300 text-sm font-medium">
+                              Read More
+                          </button>
+                      @endif
+                  </div>
+                  <div x-show="expanded">
+                      {!! $post->content !!}
+                      <button @click="expanded = false"
+                          class="text-orange-400 hover:text-orange-300 text-sm font-medium">
+                          Show Less
+                      </button>
+                  </div>
+              </div>
+              <div class="mt-2 text-sm text-gray-400">
+                  <span>Posted: {{ $post->created_at->diffForHumans() }}</span>
+              </div>
+          </div>
+      </div>
+  @endforeach
+  @endif
         
     </div>
 
-    <div class="flex flex-col gap-4 h-[100%] w-full mt-20 justify-center items-center">
+    <div class="flex flex-col gap-4 h-[100%] w-full mt-40 justify-center items-center">
       <div class="w-screen bg-[#212121] h-36">
         <div class="w-full flex justify-center items-center py-4 mt-10">
           <a href="https://www.instagram.com/h5_company?igsh=Ym1ycHFqNHV6OHI2" target="_blank" class="mx-2">

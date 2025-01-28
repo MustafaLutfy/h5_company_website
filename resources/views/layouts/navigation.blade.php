@@ -47,13 +47,19 @@
             </form>
             @endif
             
-            <a class="pl-3 inline-block no-underline hover:text-gray-800" href="#">
+    
+            <a href="{{ route('cart.index') }}" class="relative">  
                 <svg class="fill-gray-800 hover:text-gray-800" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
                     <circle cx="10.5" cy="18.5" r="1.5" />
                     <circle cx="17.5" cy="18.5" r="1.5" />
                 </svg>
-            </a>
+                @if(Auth::check() && Auth::user()->cart && Auth::user()->cart->items->count() > 0)  
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">  
+                        {{ Auth::user()->cart->items->count() }}  
+                    </span>  
+                @endif  
+            </a>  
             <div class="flex items-center gap-2 ml-4 z-30 h-20 "> 
                 <a class="w-8 h-8" href="{{ route('locale', ['locale' => 'en']) }}">
                   <img class=" rounded-full {{ Session::get('locale') == 'en' ? 'border-2 border-green-500 ' : ''}}" src="{{asset('images/istockphoto-668235920-612x612.jpg')}}" alt="">

@@ -50,18 +50,52 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(r $r)
-    {
-        //
-    }
+    public function edit($id)  
+    {  
+        $post = Post::findOrFail($id);  
+        return view('admin.views.news-edit', compact('post'));  
+    }  
+    
+    public function update(Request $request, $id)  
+{  
+    $post = Post::findOrFail($id);  
+    
+    $validatedData = $request->validate([  
+        'title' => 'required|max:255',  
+        'content' => 'required',  
+        'images' => 'nullable|array',  
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'  
+    ]);  
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, r $r)
-    {
-        //
-    }
+    // For debugging  
+    \Log::info('Received content:', ['content' => $request->content]);  
+
+    try {  
+        // Handle image upload if present  
+        if ($request->hasFile('images')) {  
+            // Delete old image  
+            if ($post->image && file_exists(public_path('news_images/' . $post->image))) {  
+                unlink(public_path('news_images/' . $post->image));  
+            }  
+            
+            // Save new image  
+            $file = $request->file('images');  
+            $filename = time() . $file[0]->getClientOriginalName();  
+            $file[0]->move(public_path('news_images'), $filename);  
+            $post->image = $filename;  
+        }  
+
+        // Update post  
+        $post->title = $request->title;  
+        $post->content = $request->content;  
+        $post->save();  
+
+        return redirect()->route('add.news')->with('success', 'News post updated successfully!');  
+    } catch (\Exception $e) {  
+        \Log::error('Error updating post:', ['error' => $e->getMessage()]);  
+        return back()->with('error', 'Error updating post: ' . $e->getMessage());  
+    }  
+}
 
     /**
      * Remove the specified resource from storage.

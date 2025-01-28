@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +57,8 @@ Route::middleware('localization')->group(function () {
         Route::post('/add/store', [StoreController::class, 'store'])->name('add.store')->middleware(['auth', 'verified']);
         Route::get('/add/news', [NewsController::class, 'create'])->name('add.news')->middleware(['auth', 'verified']);
         Route::post('/add/news', [NewsController::class, 'store'])->name('store.news')->middleware(['auth', 'verified']);
+        Route::get('/edit-news/{id}', [NewsController::class, 'edit'])->name('edit.news')->middleware(['auth', 'verified']);;  
+        Route::put('/update-news/{id}', [NewsController::class, 'update'])->name('update.news')->middleware(['auth', 'verified']);;  
         Route::get('/create', [ProductController::class, 'index'])->name('product.page')->middleware(['auth', 'verified']);
         Route::post('/create', [ProductController::class, 'create'])->name('create')->middleware(['auth', 'verified']);
         Route::delete('/order/delete/{id}', [ProductController::class, 'deleteOrder'])->name('order.delete')->middleware(['auth', 'verified']);
@@ -63,6 +67,7 @@ Route::middleware('localization')->group(function () {
         Route::get('/product/edit/{id}', [PagesController::class, 'productEdit'])->name('product.edit.page')->middleware(['auth', 'verified']);
         Route::delete('/news/delete/{id}', [NewsController::class, 'deletePost'])->name('post.delete')->middleware(['auth', 'verified']);
         Route::delete('/store/delete/{id}', [StoreController::class, 'deleteStore'])->name('store.delete')->middleware(['auth', 'verified']);
+        Route::put('/store/edit/{store}', [StoreController::class, 'update'])->name('store.update')->middleware(['auth', 'verified']);  
     });
 
     Route::get('/', [PagesController::class, 'landing'])->name('landing');
@@ -72,7 +77,20 @@ Route::middleware('localization')->group(function () {
     Route::get('/product/{id}', [ProductController::class, 'show'])->name('product');
     Route::get('/store/products/{id}', [StoreController::class, 'show'])->name('store.products');
     Route::post('/product/order/{id}', [ProductController::class, 'order'])->name('order');
-    
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');  
+    Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');  
+    Route::post('/cart/update', [CartController::class, 'updateQuantity'])->name('cart.update');  
+    Route::delete('/cart/remove/{productId}', [CartController::class, 'removeItem'])->name('cart.remove');  
+    Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear'); 
+    Route::patch('/carts/{cart}/update-status', [CartController::class, 'updateStatus'])->name('cart.update.status');  
+    Route::delete('/carts/{cart}', [CartController::class, 'delete'])->name('cart.delete');  
+    Route::get('/carts/{cart}/details', [CartController::class, 'details'])->name('cart.details');
+    Route::post('/cart/{product}/update', [CartController::class, 'updateQuantity'])->name('cart.update');  
+    Route::delete('/cart/{product}/remove', [CartController::class, 'remove'])->name('cart.remove');  
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');  
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');  
+    Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');  
+
 });
 
 

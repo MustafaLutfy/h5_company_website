@@ -69,68 +69,92 @@
         <div class="inline-block min-w-full align-middle">
             <div class="overflow-hidden shadow">
                 <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
-                    <thead class="bg-gray-100 dark:bg-gray-700">
-                        <tr>
-                            <th scope="col" class="p-4">
-                                <div class="flex items-center">
-                                    <input id="checkbox-all" aria-describedby="checkbox-1" type="checkbox" class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="checkbox-all" class="sr-only">checkbox</label>
-                                </div>
-                            </th>
-                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                Product Name
-                            </th>
-                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                Full Name
-                            </th>
-                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                Location
-                            </th>
-                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                Phone Number
-                            </th>
-                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                Actions
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                       @foreach ($orders as $order)
-                       <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="" aria-describedby="checkbox-1" type="checkbox"
-                                    class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-
-                        <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                            <div class="text-base font-semibold text-gray-900 dark:text-white">{{$order->product->name}}</div>
-                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400"></div>
-                        </td>
-                        <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$order->user_name}}</td>
-                        <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">{{$order->government}}/{{$order->address}}</td>
-                        <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">{{$order->phone}}</td>
-
-                        <td class="p-4 flex h-20 space-x-2 whitespace-nowrap">
-                            
-                            {{-- <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default" data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default" data-drawer-placement="right" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>
-                                Update
-                            </button> --}}
-                            <form action="{{route('order.delete', $order->id)}}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" class="w-24 h-full justify-center text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                                    <svg aria-hidden="true" class="w-5 h- mr-1 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                                    Delete
-                                </button>
-                            </form>
-                            
-                        </td>
-                    </tr>
-                       @endforeach
+                    <thead class="bg-gray-100 dark:bg-gray-700">  
+                        <tr>  
+                            <th scope="col" class="p-4">  
+                                <div class="flex items-center">  
+                                    <input id="checkbox-all" type="checkbox" class="w-4 h-4 border-gray-300 rounded bg-gray-50">  
+                                    <label for="checkbox-all" class="sr-only">checkbox</label>  
+                                </div>  
+                            </th>  
+                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase">  
+                                Cart ID  
+                            </th>  
+                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase">  
+                                Customer  
+                            </th>  
+                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase">  
+                                Items  
+                            </th>  
+                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase">  
+                                Total  
+                            </th>  
+                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase">  
+                                Status  
+                            </th>  
+                            <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase">  
+                                Actions  
+                            </th>  
+                        </tr>  
+                    </thead>  
+                    <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">  
+                        @foreach ($carts as $cart)  
+                        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">  
+                            <td class="w-4 p-4">  
+                                <div class="flex items-center">  
+                                    <input type="checkbox" class="w-4 h-4 border-gray-300 rounded bg-gray-50">  
+                                </div>  
+                            </td>  
+                            <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap">  
+                                <span class="font-semibold text-gray-900">#{{ $cart->id }}</span>  
+                                <br>  
+                                <span class="text-xs">{{ $cart->created_at->format('M d, Y H:i') }}</span>  
+                            </td>  
+                            <td class="p-4 text-sm">  
+                                <div class="text-base font-semibold text-gray-900">  
+                                    {{ $cart->name ?? 'Guest User' }}  
+                                </div>  
+                                @if($cart->user)  
+                                    <div class="text-sm text-gray-500">{{ $cart->user->email }}</div>  
+                                @endif  
+                            </td>  
+                            <td class="p-4 text-sm">  
+                                <div class="flex items-center gap-2">  
+                                    <a href="{{ route('cart.details', $cart->id) }}"   
+                                       class="group relative inline-flex items-center gap-1.5 px-4 py-2 bg-white text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 rounded-md transition-all duration-150 ease-in-out">  
+                                       <svg class="fill-gray-600 group-hover:fill-primary-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m17.371 19.827l2.84-2.796l-.626-.627l-2.214 2.183l-.955-.975l-.627.632zM6.77 8.731h10.462v-1H6.769zM18 22.116q-1.671 0-2.835-1.165Q14 19.787 14 18.116t1.165-2.836T18 14.116t2.836 1.164T22 18.116q0 1.67-1.164 2.835Q19.67 22.116 18 22.116M4 20.769V5.616q0-.672.472-1.144T5.616 4h12.769q.67 0 1.143.472q.472.472.472 1.144v5.944q-.244-.09-.484-.154q-.241-.064-.516-.1v-5.69q0-.231-.192-.424T18.384 5H5.616q-.231 0-.424.192T5 5.616V19.05h6.344q.068.41.176.802q.109.392.303.748l-.034.034l-1.135-.826l-1.346.961l-1.346-.961l-1.346.961l-1.347-.961zm2.77-4.5h4.709q.056-.275.138-.515t.192-.485H6.77zm0-3.769h7.31q.49-.387 1.05-.645q.56-.259 1.197-.355H6.769zM5 19.05V5z"/></svg>                                        Details  
+                                        <span class="ml-1 inline-flex items-center justify-center bg-gray-100 px-2 py-0.5 rounded-full text-xs font-medium text-gray-600 group-hover:bg-gray-200">  
+                                            {{ $cart->items->count() }}  
+                                        </span>  
+                                    </a>  
+                                </div>  
+                            </td>  
+                            <td class="p-4 text-sm font-medium text-gray-900">  
+                                {{ number_format($cart->total_amount, 0) }} IQD 
+                            </td>  
+                            <td class="p-4 text-sm">  
+                                <span class="{{ match($cart->status) {  
+                                    'pending' => 'bg-orange-100 text-yellow-800',  
+                                    'processing' => 'bg-blue-100 text-blue-800',  
+                                    'completed' => 'bg-green-100 text-green-800',  
+                                    'cancelled' => 'bg-red-100 text-red-800',  
+                                    default => 'bg-gray-100 text-gray-800'  
+                                } }} px-3 py-1 rounded-full text-sm font-medium">  
+                                    {{ ucfirst($cart->status) }}  
+                                </span>  
+                            </td>  
+                            <td class="p-4 space-x-2">  
+                                <form action="{{ route('cart.delete', $cart->id) }}" method="POST" class="inline">  
+                                    @csrf  
+                                    @method('DELETE')  
+                                    <button type="submit"   
+                                            class="text-red-600 hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5">  
+                                        Delete  
+                                    </button>  
+                                </form>  
+                            </td>  
+                        </tr>  
+                        @endforeach  
                     </tbody>
                 </table>
             </div>

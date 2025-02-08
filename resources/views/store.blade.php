@@ -174,7 +174,7 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
                 <div class="swiper-wrapper">  
                     @foreach ($stores as $store)  
                     <a href="{{route('store.products', $store->id)}}" value="{{$store->id}}" class="swiper-slide">  
-                      <div class="w-24 h-24 rounded-full border-4 p-1 z-999" style="border-color: #E87E47;">  
+                      <div class="w-24 h-24 rounded-full border-4 p-1 z-999" style="border-color: #222;">  
                           <img src="{{asset("store_images/". $store->image)}}" class="rounded-full size-full z-999"/>  
                       </div>  
                       <h2 class="mt-2 text-lg font-medium text-wrap text-center w-24 leading-4 text-menuDark">  

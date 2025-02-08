@@ -90,7 +90,7 @@ class NewsController extends Controller
         $post->content = $request->content;  
         $post->save();  
 
-        return redirect()->route('add.news')->with('success', 'News post updated successfully!');  
+        return redirect()->route('news.index')->with('success', 'News post updated successfully!');  
     } catch (\Exception $e) {  
         \Log::error('Error updating post:', ['error' => $e->getMessage()]);  
         return back()->with('error', 'Error updating post: ' . $e->getMessage());  

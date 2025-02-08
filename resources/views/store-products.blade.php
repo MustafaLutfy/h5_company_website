@@ -103,13 +103,36 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
                 @endif
                 
                 @endif
-                  <a class="pl-3 inline-block no-underline hover:text-gray-800" href="#">
-                    <svg class="fill-gray-800 hover:text-gray-800" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
-                        <circle cx="10.5" cy="18.5" r="1.5" />
-                        <circle cx="17.5" cy="18.5" r="1.5" />
-                    </svg>
-                </a>
+                <div class="flex items-center space-x-2">  
+                  <div class="flex items-center border rounded-lg">  
+                      <button type="button"  
+                              class="px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"  
+                              onclick="decrementQuantity('quantity-{{ $product->id }}')">  
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">  
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />  
+                          </svg>  
+                      </button>  
+                      <input type="number"  
+                             id="quantity-{{ $product->id }}"  
+                             min="1"  
+                             value="1"  
+                             class="w-12 text-center border-x py-1 dark:bg-gray-700 dark:text-white">  
+                      <button type="button"  
+                              class="px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"  
+                              onclick="incrementQuantity('quantity-{{ $product->id }}')">  
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">  
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />  
+                          </svg>  
+                      </button>  
+                  </div>  
+                  <button onclick="addToCart({{ $product->id }})"  
+                    class="flex items-center justify-center p-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:focus:ring-indigo-800">  
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">  
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"   
+                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />  
+                    </svg>  
+                </button>  
+              </div>  
               </div>
           </div>
         </div>
@@ -160,5 +183,151 @@ overflow-y: scroll;" class="max-w-[50%] text-gray-600 work-sans leading-normal t
   لا نتعامل بالدين
 </div>
 </body>
+
+<script>  
+  function incrementQuantity(inputId) {  
+      const input = document.getElementById(inputId);  
+      input.value = parseInt(input.value) + 1;  
+  }  
+  
+  function decrementQuantity(inputId) {  
+      const input = document.getElementById(inputId);  
+      const newValue = parseInt(input.value) - 1;  
+      if (newValue >= 1) {  
+          input.value = newValue;  
+      }  
+  }  
+  
+  function addToCart(productId) {  
+      const quantity = parseInt(document.getElementById(`quantity-${productId}`).value);  
+      const button = event.currentTarget;  
+      const originalInnerHTML = button.innerHTML;  
+      
+      // Disable button and show loading state  
+      button.disabled = true;  
+      button.innerHTML = `  
+          <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">  
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>  
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>  
+          </svg>  
+      `;  
+  
+      fetch('/cart/add', {  
+          method: 'POST',  
+          headers: {  
+              'Content-Type': 'application/json',  
+              'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content  
+          },  
+          body: JSON.stringify({  
+              product_id: productId,  
+              quantity: quantity  
+          })  
+      })  
+      .then(response => response.json())  
+      .then(data => {  
+          if (data.success) {  
+              // Update cart count  
+              const cartCount = document.getElementById('cart-count');  
+              if (cartCount) {  
+                  cartCount.textContent = data.cart_count;  
+              }  
+              
+              // Show success message  
+              const toast = document.createElement('div');  
+              toast.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded shadow-lg transform transition-all duration-500 ease-in-out z-50';  
+              toast.innerHTML = `  
+                  <div class="flex items-center space-x-2">  
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">  
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />  
+                      </svg>  
+                      <span>${data.message}</span>  
+                  </div>  
+              `;  
+              document.body.appendChild(toast);  
+  
+              // Remove toast after 3 seconds  
+              setTimeout(() => {  
+                  toast.remove();  
+              }, 3000);  
+  
+              // Reset quantity to 1  
+              document.getElementById(`quantity-${productId}`).value = 1;  
+          } else {  
+              alert(data.message || 'Error adding to cart');  
+          }  
+      })  
+      .catch(error => {  
+          console.error('Error:', error);  
+          alert('Error adding to cart');  
+      })  
+      .finally(() => {  
+          // Reset button state  
+          button.disabled = false;  
+          button.innerHTML = originalInnerHTML;  
+      });  
+  }  
+
+document.addEventListener('DOMContentLoaded', function() {  
+  // Swiper configuration  
+  const swiperConfig = {  
+      slidesPerView: 3,  
+      spaceBetween: 0,  
+      freeMode: true,  
+      pagination: {  
+          clickable: true  
+      },  
+      breakpoints: {  
+          // Mobile  
+          320: {  
+              slidesPerView: 1,  
+              spaceBetween: 10  
+          },  
+          // Tablet  
+          640: {  
+              slidesPerView: 2,  
+              spaceBetween: 20  
+          },  
+          // Desktop  
+          1024: {  
+              slidesPerView: 3,  
+              spaceBetween: 0  
+          }  
+      },  
+      on: {  
+          slideChange: hideOverlay,  
+          touchMove: hideOverlay  
+      }  
+  };  
+
+  // Initialize Swiper  
+  const swiper = new Swiper('.mySwiper', swiperConfig);  
+
+  // Category scroll functionality  
+  function scrollToCategory(index) {  
+      const element = document.querySelector(`[data-category-index="${index}"]`);  
+      if (element) {  
+          element.scrollIntoView({   
+              behavior: 'smooth',  
+              block: 'start'  
+          });  
+      }  
+  }  
+
+  function hideOverlay() {  
+      // Add your overlay hiding logic here if needed  
+      console.log('Overlay hidden');  
+  }  
+
+  // Add click handlers for category scrolling  
+  document.querySelectorAll('.swiper-slide.category-scroll').forEach(slide => {  
+      slide.addEventListener('click', function(e) {  
+          e.preventDefault();  
+          const categoryIndex = this.getAttribute('data-category-index');  
+          scrollToCategory(categoryIndex);  
+      });  
+  });  
+});  
+</script>  
+
 
 </x-app-layout>

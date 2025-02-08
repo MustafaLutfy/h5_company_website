@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\Post;
 use App\Models\Cart;
 use App\Models\Image;
+use App\Models\TeamMember;
 use App\Models\Store;
 use Auth;
 class PagesController extends Controller
@@ -18,14 +19,10 @@ class PagesController extends Controller
     }
 
     public function home(){
-        return view('home')->with([
-            'posts' => Post::get()->take(5),
-        ]);
+        return view('home')->with(['posts' => Post::get()->take(4), 'teamMembers' => TeamMember::get()]);
     }
     public function about(){
-        return view('about')->with([
-            'posts' => Post::get()->take(4),
-        ]);    }
+        return view('about')->with(['posts' => Post::get()->take(4), 'teamMembers' => TeamMember::get()]);}
     public function store(){
         $carouselProducts = Product::orderBy('new_price')->where('original_price' , '<>' , 'new_price')->take(5)->get();
         $products = Product::where('store_id', '7')->orderBy('product_order', 'DESC')->get();
@@ -70,7 +67,7 @@ class PagesController extends Controller
    
     public function news(){
         if (Auth::user() && Auth::user()->role == 1) {
-            $posts = Post::get();
+            $posts = Post::orderBy('created_at','DESC')->get();
         return view('admin.views.news')->with([
             'posts' => $posts,
         ]);
@@ -82,7 +79,7 @@ class PagesController extends Controller
     }
     public function stores(){
         if (Auth::user() && Auth::user()->role == 1) {
-            $stores = Store::get();
+            $stores = Store::orderBy('created_at','DESC')->get();
         return view('admin.views.stores')->with([
             'stores' => $stores,
         ]);

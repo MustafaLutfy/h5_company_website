@@ -90,43 +90,43 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                       @foreach ($posts as $post)
-                       <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="" aria-describedby="checkbox-1" type="checkbox"
-                                    class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-
-                        <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                            <div class="text-base font-semibold text-gray-900 dark:text-white">{{$post->title}}</div>
-                        </td>
-                        <td class="p-4 text-sm font-medium text-gray-900 dark:text-white max-w-96">{{$post->content}}</td>
-
-                        <td class="p-4 flex h-16 space-x-2 whitespace-nowrap">
-                            {{-- <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default" data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default" data-drawer-placement="right" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>
-                                Update
-                            </button> --}}
-                            <form action="{{route('post.delete', $post->id)}}" method="POST" class="h-full mx-auto">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" class="w-24 h-full justify-center text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                                    <svg aria-hidden="true" class="w-5 h- mr-1 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                                    Delete
-                                </button>
-                                <a href="{{route('edit.news', $post->id)}}">
-                                    <button type="button" id="updateProductButton" class="group w-24 h-full justify-center text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-600 dark:blue-600 dark:hover:text-blue-600 dark:hover:blue-600 dark:focus:ring-red-900">
-                                        <svg class="w-4 h-4 mr-1 -ml-1 fill-blue-600 group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 18.08V19h.92l9.06-9.06l-.92-.92z" opacity="0.3"/><path d="M20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.1-.7.29l-1.83 1.83l3.75 3.75zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM5.92 19H5v-.92l9.06-9.06l.92.92z"/></svg>Edit
-                                    </button>
-                                </a>
-                               
-                            </form>
-                        </td>
-                    </tr>
-                       @endforeach
+                        @foreach ($posts as $post)
+                        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                         <td class="w-4 p-4">
+                             <div class="flex items-center">
+                                 <input id="" aria-describedby="checkbox-1" type="checkbox"
+                                     class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                                 <label for="" class="sr-only">checkbox</label>
+                             </div>
+                         </td>
+ 
+                         <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                             <div class="text-base font-semibold text-gray-900 dark:text-white">{{$post->title}}</div>
+                         </td>
+                         <td class="p-4 text-sm font-medium text-gray-900 dark:text-white max-w-96">{{$post->content}}</td>
+ 
+                         <td class="p-4 flex h-16 space-x-2 whitespace-nowrap">
+                             {{-- <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default" data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default" data-drawer-placement="right" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>
+                                 Update
+                             </button> --}}
+                             <form action="{{route('post.delete', $post->id)}}" method="POST" class="h-full mx-auto">
+                                 @method('DELETE')
+                                 @csrf
+                                 <button type="submit" class="w-24 h-full justify-center text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                     <svg aria-hidden="true" class="w-5 h- mr-1 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                     Delete
+                                 </button>
+                                 <a href="{{route('edit.news', $post->id)}}">
+                                     <button type="button" id="updateProductButton" class="group w-24 h-full justify-center text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-600 dark:blue-600 dark:hover:text-blue-600 dark:hover:blue-600 dark:focus:ring-red-900">
+                                         <svg class="w-4 h-4 mr-1 -ml-1 fill-blue-600 group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 18.08V19h.92l9.06-9.06l-.92-.92z" opacity="0.3"/><path d="M20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.1-.7.29l-1.83 1.83l3.75 3.75zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM5.92 19H5v-.92l9.06-9.06l.92.92z"/></svg>Edit
+                                     </button>
+                                 </a>
+                                
+                             </form>
+                         </td>
+                     </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

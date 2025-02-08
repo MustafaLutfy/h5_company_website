@@ -60,10 +60,25 @@
                                         id="city"  
                                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"  
                                         required>  
-                                    <option value="">Select a city</option>  
-                                    <option value="Baghdad" {{ (auth()->check() && auth()->user()->city === 'Baghdad') || old('city') === 'Baghdad' ? 'selected' : '' }}>Baghdad</option>  
-                                    <option value="Basra" {{ (auth()->check() && auth()->user()->city === 'Basra') || old('city') === 'Basra' ? 'selected' : '' }}>Basra</option>  
-                                    <option value="Mosul" {{ (auth()->check() && auth()->user()->city === 'Mosul') || old('city') === 'Mosul' ? 'selected' : '' }}>Mosul</option>  
+                                        <option value="">Select a city</option>
+                                        <option value="Baghdad" {{ (auth()->check() && auth()->user()->city === 'Baghdad') || old('city') === 'Baghdad' ? 'selected' : '' }}>Baghdad</option>
+                                        <option value="Basra" {{ (auth()->check() && auth()->user()->city === 'Basra') || old('city') === 'Basra' ? 'selected' : '' }}>Basra</option>
+                                        <option value="Mosul" {{ (auth()->check() && auth()->user()->city === 'Mosul') || old('city') === 'Mosul' ? 'selected' : '' }}>Mosul</option>
+                                        <option value="Erbil" {{ (auth()->check() && auth()->user()->city === 'Erbil') || old('city') === 'Erbil' ? 'selected' : '' }}>Erbil</option>
+                                        <option value="Sulaymaniyah" {{ (auth()->check() && auth()->user()->city === 'Sulaymaniyah') || old('city') === 'Sulaymaniyah' ? 'selected' : '' }}>Sulaymaniyah</option>
+                                        <option value="Dohuk" {{ (auth()->check() && auth()->user()->city === 'Dohuk') || old('city') === 'Dohuk' ? 'selected' : '' }}>Dohuk</option>
+                                        <option value="Kirkuk" {{ (auth()->check() && auth()->user()->city === 'Kirkuk') || old('city') === 'Kirkuk' ? 'selected' : '' }}>Kirkuk</option>
+                                        <option value="Anbar" {{ (auth()->check() && auth()->user()->city === 'Anbar') || old('city') === 'Anbar' ? 'selected' : '' }}>Anbar</option>
+                                        <option value="Babylon" {{ (auth()->check() && auth()->user()->city === 'Babylon') || old('city') === 'Babylon' ? 'selected' : '' }}>Babylon</option>
+                                        <option value="Najaf" {{ (auth()->check() && auth()->user()->city === 'Najaf') || old('city') === 'Najaf' ? 'selected' : '' }}>Najaf</option>
+                                        <option value="Karbala" {{ (auth()->check() && auth()->user()->city === 'Karbala') || old('city') === 'Karbala' ? 'selected' : '' }}>Karbala</option>
+                                        <option value="Wasit" {{ (auth()->check() && auth()->user()->city === 'Wasit') || old('city') === 'Wasit' ? 'selected' : '' }}>Wasit</option>
+                                        <option value="Maysan" {{ (auth()->check() && auth()->user()->city === 'Maysan') || old('city') === 'Maysan' ? 'selected' : '' }}>Maysan</option>
+                                        <option value="Dhi Qar" {{ (auth()->check() && auth()->user()->city === 'Dhi Qar') || old('city') === 'Dhi Qar' ? 'selected' : '' }}>Dhi Qar</option>
+                                        <option value="Qadisiyyah" {{ (auth()->check() && auth()->user()->city === 'Qadisiyyah') || old('city') === 'Qadisiyyah' ? 'selected' : '' }}>Qadisiyyah</option>
+                                        <option value="Salah ad-Din" {{ (auth()->check() && auth()->user()->city === 'Salah ad-Din') || old('city') === 'Salah ad-Din' ? 'selected' : '' }}>Salah ad-Din</option>
+                                        <option value="Diyala" {{ (auth()->check() && auth()->user()->city === 'Diyala') || old('city') === 'Diyala' ? 'selected' : '' }}>Diyala</option>
+                                        <option value="Muthanna" {{ (auth()->check() && auth()->user()->city === 'Muthanna') || old('city') === 'Muthanna' ? 'selected' : '' }}>Muthanna</option>
                                 </select>  
                                 @error('city')  
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>  

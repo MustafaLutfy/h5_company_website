@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\TeamMemberController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -67,8 +68,8 @@ Route::middleware('localization')->group(function () {
         Route::get('/product/edit/{id}', [PagesController::class, 'productEdit'])->name('product.edit.page')->middleware(['auth', 'verified']);
         Route::delete('/news/delete/{id}', [NewsController::class, 'deletePost'])->name('post.delete')->middleware(['auth', 'verified']);
         Route::delete('/store/delete/{id}', [StoreController::class, 'deleteStore'])->name('store.delete')->middleware(['auth', 'verified']);
-        Route::put('/store/edit/{store}', [StoreController::class, 'update'])->name('store.update')->middleware(['auth', 'verified']);  
-    });
+        Route::put('/store/edit/{store}', [StoreController::class, 'update'])->name('store.update')->middleware(['auth', 'verified']); 
+        Route::resource('/team-members', TeamMemberController::class)->middleware(['auth', 'verified'])->except(['show']);});
 
     Route::get('/', [PagesController::class, 'landing'])->name('landing');
     Route::get('/home', [PagesController::class, 'home'])->name('home');
